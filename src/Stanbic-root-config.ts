@@ -78,13 +78,12 @@ function startApplication() {
     });
 
     db.table("userToken").toArray().then((res: any) => {
-      console.log('WWWWWWWWWWWWWWWW: ', res)
       if (res.length > 0) {
 
       } else {
         navigateToUrl('/auth')
       }
-      
+
     })
     
     const stanbicMain = document.querySelector("#stanbicMain") as HTMLElement;

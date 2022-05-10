@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>StanbicIBTC Bank</title>
+  <link href="http://172.104.144.208:7000/css/font-family.css" rel="stylesheet">
+<!--  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;script-src 'self' http://http://172.104.144.208/ 'unsafe-inline' 'unsafe-eval';">-->
 
   <link href="https://tets.fra1.cdn.digitaloceanspaces.com/styles.css" rel="stylesheet">
 
@@ -41,7 +43,7 @@
     }
 
     .stanbicMain {
-      font-family: BentonSans Regular, serif;
+      font-family: BentonSansRegular, serif;
       box-sizing: border-box;
       background: var(--backgrundColour);
       font-size: 12px;
@@ -69,6 +71,7 @@
       height: calc(100vh - 70px);
       overflow-y: auto;
       box-sizing: border-box;
+      background: #E5E5E5;
     }
 
     .fullDisplayMode {
@@ -120,21 +123,20 @@
   <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
 
   <script type="text/javascript">
-    const request =  fetch('http://143.198.184.62/api/control')
+    const request =  fetch('http://172.104.144.208:3000/api/control')
     request
     .then(data => {return data.json()})
     .then(res => {
       var db = new Dexie("ApplicationList");
       db.version(1).stores({
-        appList: `
-          appName,
-          appURL,
-          appRoute,
-          appMenuName`
+          appList: `
+            appName,
+            appURL,
+            appRoute,
+            appMenuName`
       });
 
-      db.appList.bulkPut(res)
-    })
+    db.appList.bulkPut(res)})
   </script>
 
   <!--
@@ -148,7 +150,7 @@
     This CSP allows any SSL-enabled host and for arbitrary eval(), but you should limit these directives further to increase your app's security.
     Learn more about CSP policies at https://content-security-policy.com/#directive
   -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; object-src 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' http: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' http: localhost:*; connect-src http: localhost:* ws://localhost:*; style-src 'unsafe-inline' http:; object-src 'none';">
   <meta name="importmap-type" content="systemjs-importmap" />
   <!-- If you wish to turn off import-map-overrides for specific environments (prod), uncomment the line below -->
   <!-- More info at https://github.com/joeldenning/import-map-overrides/blob/master/docs/configuration.md#domain-list -->
@@ -172,7 +174,7 @@
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
 
   <!-- Add your organization's prod import map URL to this script's src  -->
-  <script type="systemjs-importmap" src="https://tets.fra1.digitaloceanspaces.com/importmap.json"></script>
+  <script type="systemjs-importmap" src="http://172.104.144.208:8001/asset/importmap.json"></script>
 <!--
   <% if (isLocal) { %>
   <script type="systemjs-importmap">
