@@ -71,20 +71,20 @@ function startApplication() {
   start();
 
   window.addEventListener("single-spa:before-routing-event", (evt: any) => {
-    var db: any = new Dexie("UserData");
-    db.version(1).stores({
-      userToken: 'token',
-      userDetails: 'FirstName',
-    });
+    // var db: any = new Dexie("UserData");
+    // db.version(1).stores({
+    //   userToken: 'token',
+    //   userDetails: 'FirstName',
+    // });
 
-    db.table("userToken").toArray().then((res: any) => {
-      if (res.length > 0) {
-
-      } else {
-        navigateToUrl('/auth')
-      }
-
-    })
+    // db.table("userToken").toArray().then((res: any) => {
+    //   if (res.length > 0) {
+    //
+    //   } else {
+    //     navigateToUrl('/auth')
+    //   }
+    //
+    // })
     
     const stanbicMain = document.querySelector("#stanbicMain") as HTMLElement;
 

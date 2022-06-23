@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>StanbicIBTC Bank</title>
-  <link href="http://172.104.144.208:7000/css/font-family.css" rel="stylesheet">
-<!--  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;script-src 'self' http://http://172.104.144.208/ 'unsafe-inline' 'unsafe-eval';">-->
-
-  <link href="https://tets.fra1.cdn.digitaloceanspaces.com/styles.css" rel="stylesheet">
+  <link href="https://stanbicbentosansfont.web.app/css/font-family.css" rel="stylesheet">
 
   <script type="text/javascript">
     function setTheme() {
@@ -123,7 +120,7 @@
   <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
 
   <script type="text/javascript">
-    const request =  fetch('http://172.104.144.208:3000/api/control')
+    const request =  fetch('http://198.199.91.252/api/control')
     request
     .then(data => {return data.json()})
     .then(res => {
@@ -174,7 +171,7 @@
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
 
   <!-- Add your organization's prod import map URL to this script's src  -->
-  <script type="systemjs-importmap" src="http://172.104.144.208:8001/asset/importmap.json"></script>
+  <script type="systemjs-importmap" src="https://control.fra1.digitaloceanspaces.com/importmap.json"></script>
 <!--
   <% if (isLocal) { %>
   <script type="systemjs-importmap">
