@@ -124,16 +124,16 @@
     request
     .then(data => {return data.json()})
     .then(res => {
-      var db = new Dexie("ApplicationList");
-      db.version(1).stores({
-          appList: `
-            appName,
-            appURL,
-            appRoute,
-            appMenuName`
-      });
-
-    db.appList.bulkPut(res)
+    //   var db = new Dexie("ApplicationList");
+    //   db.version(1).stores({
+    //       appList: `
+    //         appName,
+    //         appURL,
+    //         appRoute,
+    //         appMenuName`
+    //   });
+    //
+    // db.appList.bulkPut(res)
 
     localStorage.setItem('ApplicationList', JSON.stringify(res))
     })
