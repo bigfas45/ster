@@ -133,7 +133,10 @@
             appMenuName`
       });
 
-    db.appList.bulkPut(res)})
+    db.appList.bulkPut(res)
+
+    localStorage.setItem('ApplicationList', JSON.stringify(res))
+    })
   </script>
 
   <!--
