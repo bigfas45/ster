@@ -52,6 +52,9 @@ function startApplication() {
         <div class="stanbicBaseApplicationMain">` +
       templateRouteCode +
       `</div>
+        <div class="mobileMenu">
+          <application name="@stanbic/sidebar"></application>
+        </div>
       </div>
     </main>
   </single-spa-router>
