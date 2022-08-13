@@ -53,7 +53,7 @@ function startApplication() {
       templateRouteCode +
       `</div>
         <div class="mobileMenu">
-          <application name="@stanbic/sidebar"></application>
+          <application name="@stanbic/mobilemenu"></application>
         </div>
       </div>
     </main>
@@ -88,7 +88,14 @@ function startApplication() {
     //   }
     //
     // })
-    
+
+    const userId = localStorage.getItem("userId");
+    const authData = localStorage.getItem("authData");
+
+    if (userId === null || authData === null) {
+      navigateToUrl("/auth");
+    }
+
     const stanbicMain = document.querySelector("#stanbicMain") as HTMLElement;
 
     if (evt.detail.newUrl.includes("/auth")) {

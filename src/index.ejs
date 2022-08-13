@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>StanbicIBTC Bank</title>
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
   <link href="https://stanbicbentosansfont.web.app/css/font-family.css" rel="stylesheet">
 
   <script type="text/javascript">
@@ -23,10 +23,17 @@
     }
 
     setTheme();
+
+    const currentURL = window.location.href;
+    const userId = localStorage.getItem('userId')
+    const authData = JSON.parse(localStorage.getItem('authData'))
+    if (currentURL.includes('/auth') === false && userId === null && authData === null) {
+      window.location.href = `${window.location.protocol}//${window.location.host}/auth`;
+    }
   </script>
 
   <style>
-    @import url("https://tets.fra1.digitaloceanspaces.com/styles.css");
+    /*@import url("https://tets.fra1.digitaloceanspaces.com/styles.css");*/
     html.transition,
     html.transition *,
     html.transition *:before,
@@ -39,6 +46,28 @@
       padding: 0;
       background-color: var(--backgrund-colour);
     }
+
+
+    *::-webkit-scrollbar-track
+    {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background-color: rgba(245, 245, 245, 0);
+      border-radius: 10px;
+    }
+
+    *::-webkit-scrollbar
+    {
+      width: 10px;
+      height: 10px;
+      background-color: rgba(245, 245, 245, 0);
+    }
+
+    *::-webkit-scrollbar-thumb
+    {
+      border-radius: 10px;
+      background-image: linear-gradient(134.34deg, #0033AA 0%, #0089FF 67.6%);
+    }
+
 
     .stanbicMain {
       font-family: BentonSansRegular, serif;
@@ -121,7 +150,7 @@
   <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
 
   <script type="text/javascript">
-    const request =  fetch('http://198.199.91.252/api/control')
+    const request =  fetch('http://146.190.228.236/api/control')
     request
     .then(data => {return data.json()})
     .then(res => {
@@ -175,8 +204,8 @@
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
 
   <!-- Add your organization's prod import map URL to this script's src  -->
-  <script type="systemjs-importmap" src="https://control.fra1.digitaloceanspaces.com/importmap.json"></script>
-<!--
+<!--  <script type="systemjs-importmap" src="https://contro.fra1.digitaloceanspaces.com/importmap.json"></script>-->
+
   <% if (isLocal) { %>
   <script type="systemjs-importmap">
     {
@@ -188,7 +217,7 @@
       }
     }
   </script>
-  <% } %> -->
+  <% } %>
 
   <!--
     If you need to support Angular applications, uncomment the script tag below to ensure only one instance of ZoneJS is loaded
