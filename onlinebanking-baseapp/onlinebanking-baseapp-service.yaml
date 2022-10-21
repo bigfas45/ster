@@ -1,0 +1,18 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: onlinebanking-baseapp
+  namespace: development
+  labels:
+    app.kubernetes.io/component: frontend
+    app.kubernetes.io/part-of: sibtc-online-banking
+    app.kubernetes.io/version: "1.0.0"
+    app.kubernetes.io/environment: development
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: { portExposedInContainer }
+  selector:
+    app: onlinebanking-baseapp

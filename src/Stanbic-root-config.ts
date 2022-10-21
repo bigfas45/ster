@@ -92,9 +92,9 @@ function startApplication() {
     const userId = localStorage.getItem("userId");
     const authData = localStorage.getItem("authData");
 
-    if (userId === null || authData === null) {
-      navigateToUrl("/auth");
-    }
+    // if (userId === null || authData === null) {
+    //   navigateToUrl("/auth");
+    // }
 
     const stanbicMain = document.querySelector("#stanbicMain") as HTMLElement;
 
