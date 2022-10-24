@@ -11,14 +11,21 @@
   <script type="text/javascript">
     function setTheme() {
       const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
-      if (darkThemeMq.matches) {
-        // Theme set to dark.
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('applicationTheme', 'dark')
-      } else {
-        // Theme set to light.
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('applicationTheme', 'light')
+
+      if (localStorage.getItem('applicationTheme')==null || localStorage.getItem('applicationTheme')=='') {
+
+        if (darkThemeMq.matches) {
+          // Theme set to dark.
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('applicationTheme', 'dark')
+        } else {
+          // Theme set to light.
+          document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('applicationTheme', 'light')
+        }
+
+      }else{
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('applicationTheme'));
       }
     }
 
