@@ -40,7 +40,6 @@
   </script>
 
   <style>
-    /*@import url("https://tets.fra1.digitaloceanspaces.com/styles.css");*/
     html.transition,
     html.transition *,
     html.transition *:before,
@@ -133,11 +132,15 @@
 
 
     @media (max-width: 800px) {
+      .stanbicMain {
+        display: grid;
+        grid-template-columns: 100vw;
+        grid-template-rows: calc(100vh - 60px) 60px;
+      }
+
       .stanbicMain .sideBar {
-        position: fixed;
-        top: 0;
-        left: -262px;
-        transition: 200ms linear left;
+        height: auto;
+        grid-row: 2;
       }
 
       .stanbicMain .stanbicBaseApplicationMainContainer {
@@ -146,7 +149,7 @@
       }
 
       .stanbicMain .stanbicBaseApplicationMainContainer .stanbicBaseApplicationMain {
-        height: calc(100vh - 70px);
+        height: calc(100vh - 130px);
         transition: 200ms linear height;
       }
     }
@@ -157,7 +160,7 @@
   <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
 
   <script type="text/javascript">
-    const request =  fetch('http://146.190.228.236/api/control')
+    const request =  fetch('https://vbox.com.ng/api/control')
     request
     .then(data => {return data.json()})
     .then(res => {
@@ -231,16 +234,16 @@
 <!--  <script type="systemjs-importmap" src="https://contro.fra1.digitaloceanspaces.com/importmap.json"></script>-->
 
 <!--  <% if (isLocal) { %>-->
-<!--  <script type="systemjs-importmap">-->
-<!--    {-->
-<!--      "imports": {-->
-<!--        "@stanbic/sidebar": "http://localhost:9001/main.js",-->
-<!--        "@stanbic/header": "http://localhost:9002/main.js",-->
-<!--        "@stanbic/auth": "http://localhost:9003/main.js",-->
-<!--        "@Stanbic/root-config": "//localhost:9000/Stanbic-root-config.js"-->
-<!--      }-->
-<!--    }-->
-<!--  </script>-->
+  <script type="systemjs-importmap">
+    {
+      "imports": {
+        "@stanbic/sidebar": "http://localhost:9001/main.js",
+        "@stanbic/header": "http://localhost:9002/main.js",
+        "@stanbic/auth": "http://localhost:9003/main.js",
+        "@Stanbic/root-config": "//localhost:9000/Stanbic-root-config.js"
+      }
+    }
+  </script>
 <!--  <% } %>-->
 
   <!--

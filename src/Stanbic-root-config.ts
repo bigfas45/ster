@@ -41,6 +41,7 @@ function startApplication() {
   const routes = constructRoutes(
     `
   <single-spa-router>
+    <redirect from="/" to="/auth"></redirect>
     <main class="stanbicMain" id="stanbicMain">
       <div class="sideBar">
         <application name="@stanbic/sidebar"></application>
@@ -52,9 +53,6 @@ function startApplication() {
         <div class="stanbicBaseApplicationMain">` +
       templateRouteCode +
       `</div>
-        <div class="mobileMenu">
-          <application name="@stanbic/mobilemenu"></application>
-        </div>
       </div>
     </main>
   </single-spa-router>
