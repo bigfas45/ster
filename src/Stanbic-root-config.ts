@@ -18,11 +18,11 @@ async function loadApplications() {
   const applicationList = JSON.parse(localStorage.getItem("ApplicationList"));
 
   await applicationList.forEach((app, index) => {
-    if (app.appRoute) {
-      const routeCode = `<route path="${app.appRoute}">
+    if (app.result.appRoute) {
+      const routeCode = `<route path="${app.result.appRoute}">
         <application loader="${
-          app.appName === "@stanbic/home" ? "home" : "loading"
-        }" name="${app.appName}"></application>
+          app.result.appName === "@stanbic/home" ? "home" : "loading"
+        }" name="${app.result.appName}"></application>
       </route>
       `;
       templateRouteCode += routeCode;
