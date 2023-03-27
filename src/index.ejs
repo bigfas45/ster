@@ -5,15 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>StanbicIBTC Bank</title>
-  <link rel="manifest" href="manifest.json">
-  <link href="https://stanbicbentosansfont.web.app/css/font-family.css" rel="stylesheet">
+  <script type="text/javascript">
+    const request =  fetch('https://app.stanbicibtc.com/Ocelot_Admin/api/control')
+    request
+            .then(data => {return data.json()})
+            .then(res => {
+              const appList = res.content
+              localStorage.setItem('ApplicationList', JSON.stringify(res.content))
+            })
+  </script>
+  <link rel="manifest" href="/manifest.json">
+  <link href="https://app.stanbicibtc.com/StanbicIBTCBentoSanFonts/css/font-family.css" rel="stylesheet">
 
   <script type="text/javascript">
     function setTheme() {
       const darkThemeMq = window.matchMedia('(prefers-color-scheme: dark)');
-
       if (localStorage.getItem('applicationTheme')==null || localStorage.getItem('applicationTheme')=='') {
-
         if (darkThemeMq.matches) {
           // Theme set to dark.
           document.documentElement.setAttribute('data-theme', 'dark');
@@ -30,10 +37,16 @@
     }
 
     setTheme();
+
+    // const currentURL = window.location.href;
+    // const userId = localStorage.getItem('userId')
+    // const authData = JSON.parse(localStorage.getItem('authData'))
+    // if (currentURL.includes('/auth') === false && userId === null && authData === null) {
+    //   window.location.href = `${window.location.protocol}//${window.location.host}/auth`;
+    // }
   </script>
 
   <style>
-    @import url("https://tets.fra1.digitaloceanspaces.com/styles.css");
     html.transition,
     html.transition *,
     html.transition *:before,
@@ -46,6 +59,28 @@
       padding: 0;
       background-color: var(--backgrund-colour);
     }
+
+
+    *::-webkit-scrollbar-track
+    {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      background-color: rgba(245, 245, 245, 0);
+      border-radius: 10px;
+    }
+
+    *::-webkit-scrollbar
+    {
+      width: 10px;
+      height: 10px;
+      background-color: rgba(245, 245, 245, 0);
+    }
+
+    *::-webkit-scrollbar-thumb
+    {
+      border-radius: 10px;
+      background-image: linear-gradient(134.34deg, #0033AA 0%, #0089FF 67.6%);
+    }
+
 
     .stanbicMain {
       font-family: BentonSansRegular, serif;
@@ -104,11 +139,15 @@
 
 
     @media (max-width: 800px) {
+      .stanbicMain {
+        display: grid;
+        grid-template-columns: 100vw;
+        grid-template-rows: calc(100vh - 60px) 60px;
+      }
+
       .stanbicMain .sideBar {
-        position: fixed;
-        top: 0;
-        left: -262px;
-        transition: 200ms linear left;
+        height: auto;
+        grid-row: 2;
       }
 
       .stanbicMain .stanbicBaseApplicationMainContainer {
@@ -117,35 +156,17 @@
       }
 
       .stanbicMain .stanbicBaseApplicationMainContainer .stanbicBaseApplicationMain {
-        height: calc(100vh - 70px);
+        height: calc(100vh - 130px);
+        transition: 200ms linear height;
+      }
+
+      .fullDisplayMode .stanbicBaseApplicationMainContainer .stanbicBaseApplicationMain {
+        height: 100vh !important;
         transition: 200ms linear height;
       }
     }
 
     </style>
-
-
-  <script src="https://unpkg.com/dexie/dist/dexie.js"></script>
-
-  <script type="text/javascript">
-    const request =  fetch('http://146.190.228.236/api/control')
-    request
-    .then(data => {return data.json()})
-    .then(res => {
-      var db = new Dexie("ApplicationList");
-      db.version(1).stores({
-          appList: `
-            appName,
-            appURL,
-            appRoute,
-            appMenuName`
-      });
-
-    db.appList.bulkPut(res)
-
-    localStorage.setItem('ApplicationList', JSON.stringify(res))
-    })
-  </script>
 
   <!--
     Remove this if you only support browsers that support async/await.
@@ -181,26 +202,35 @@
   </script>
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js" as="script">
 
-  <!-- Add your organization's prod import map URL to this script's src  -->
-  <script type="systemjs-importmap" src="https://contro.fra1.digitaloceanspaces.com/importmap.json"></script>
-  <!-- test  -->
-  <!-- <% if (isLocal) { %>
-  <script type="systemjs-importmap">
-    {
-      "imports": {
-        "@stanbic/sidebar": "http://localhost:9001/main.js",
-        "@stanbic/header": "http://localhost:9002/main.js",
-        "@stanbic/auth": "http://localhost:9003/main.js",
-        "@Stanbic/root-config": "//localhost:9000/Stanbic-root-config.js"
+  <script>
+    const currentLanguage = localStorage.getItem('lang') || 'en-us'
+    function addScript() {
+      const s = document.createElement("script");
+      s.setAttribute( 'type', 'systemjs-importmap' );
+      switch (currentLanguage) {
+        case 'en-us': s.setAttribute( 'src', 'https://app.stanbicibtc.com/Ocelot_Admin/public/importmap/en/importmap.json' ); break;
+        case 'zh-cn': s.setAttribute( 'src', 'https://app.stanbicibtc.com/Ocelot_Admin/public/importmap/ch/importmap.json' ); break;
+        default: s.setAttribute( 'src', 'https://app.stanbicibtc.com/Ocelot_Admin/public/importmap/en/importmap.json' )
       }
-    }
-  </script>
-  <% } %> -->
 
-  <!--
-    If you need to support Angular applications, uncomment the script tag below to ensure only one instance of ZoneJS is loaded
-    Learn more about why at https://single-spa.js.org/docs/ecosystem-angular/#zonejs
-  -->
+      document.head.appendChild( s );
+    }
+
+    addScript()
+  </script>
+
+<!--  <% if (isLocal) { %>-->
+<!--  <script type="systemjs-importmap">-->
+<!--    {-->
+<!--      "imports": {-->
+<!--        "@stanbic/sidebar": "http://localhost:9001/main.js",-->
+<!--        "@stanbic/header": "http://localhost:9002/main.js",-->
+<!--        "@stanbic/auth": "http://localhost:9003/main.js",-->
+<!--        "@Stanbic/root-config": "//localhost:9000/Stanbic-root-config.js"-->
+<!--      }-->
+<!--    }-->
+<!--  </script>-->
+<!--  <% } %>-->
   <script src="https://cdn.jsdelivr.net/npm/zone.js@0.11.3/dist/zone.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
@@ -212,8 +242,71 @@
   <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
   <% } %>
 
+  <style>
+    html[data-theme='dark'] {
+      --loaderBackground: #202020;
+      --loaderBG: #454545;
+    }
+    html[data-theme='light'] {
+      --loaderBackground: #ffffff;
+      --loaderBG:  #ddd;
+    }
+
+    .loader-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100dvh;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: var(--loaderBackground);
+      box-sizing: border-box;
+    }
+
+    .logo {
+      width: 200px;
+      height: auto;
+    }
+
+    .loader {
+      width: 400px;
+      max-width: 80%;
+      height: 10px;
+      background-color: var(--loaderBG);;
+      border-radius: 10px;
+      margin-top: 20px;
+      position: relative;
+      box-sizing: border-box;
+    }
+
+    .bar {
+      height: 100%;
+      width: 0%;
+      background-color: #007bff;
+      border-radius: 10px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: width 1s ease-in-out;
+      box-sizing: border-box;
+    }
+
+  </style>
 </head>
 <body>
+<div class="loader-container" id="loader-screen">
+  <img src="https://www.stanbicibtcbank.com/static_file/Nigeria/nigeriabank/Downloads/Media%20Toolkit/Stanbic%20ibtc%203.png" alt="Stanbic IBTC Logo" class="logo">
+  <div class="loader">
+    <div class="bar"></div>
+  </div>
+</div>
+
+
   <noscript>
     You need to enable JavaScript to run this app.
   </noscript>
@@ -227,5 +320,23 @@
       navigator.serviceWorker.register('/service-worker.js');
     }
   </script>
+<script>
+  setTimeout(()=> {
+    const loader = document.getElementById('loader-screen')
+    loader.style.display = 'none'
+  }, 5000)
+
+  const bar = document.querySelector('.bar');
+  let width = 0;
+  const interval = setInterval(() => {
+    if (width >= 100) {
+      clearInterval(interval);
+      // Hide loader and show content here
+    } else {
+      width += 10;
+      bar.style.width = `${width}%`;
+    }
+  }, 400);
+</script>
 </body>
 </html>

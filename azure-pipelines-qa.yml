@@ -1,0 +1,21 @@
+trigger:
+  - QA
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: Docker@2
+    displayName: Running Docker File
+
+  - script:
+      docker login -u stanbicibtconlinebanking -p $(DockerPassword) stanbicibtmicrofrontend.azurecr.io
+    displayName: 'Docker Login'
+
+  - script:
+      docker build -t stanbicibtmicrofrontend.azurecr.io/stanbicibtc.onlinebanking.baseapp:$(git rev-parse --short HEAD) .
+    displayName: 'Docker Build'
+
+  - script:
+      docker push stanbicibtmicrofrontend.azurecr.io/stanbicibtc.onlinebanking.baseapp:$(git rev-parse --short HEAD)
+    displayName: 'Docker Push'

@@ -4,45 +4,29 @@
   "start_url": "/",
   "shortcuts": [
     {
-      "name": "Transfer",
-      "short_name": "Transfer",
-      "description": "Transfer money from your Stanbic IBTC Account to other banks",
-      "url": "/transfer",
-      "icons": [{ "src": "/icons/feed.png", "sizes": "192x192" }]
+      "name": "Branch, ATM and Agent Locator",
+      "short_name": "Agent Locator",
+      "description": "Find the location of all StanbicIBTC Branches, ATM and Agents",
+      "url": "/?agents=true",
+      "icons": [{ "src": "images/stanbicLogo.png", "sizes": "192x192" }]
     },
     {
-      "name": "Recent Comments",
-      "short_name": "Comments",
-      "description": "View recent comments",
-      "url": "/comments?utm_source=homescreen",
-      "icons": [{ "src": "/icons/comments.png", "sizes": "192x192" }]
+      "name": "Account Opening",
+      "short_name": "Open Account",
+      "description": "Open a new StanbicIBTC account",
+      "url": "/?openaccount=true",
+      "icons": [{ "src": "images/stanbicLogo.png", "sizes": "192x192" }]
     }
   ],
   "icons": [
     {
-      "src": "logo.png",
+      "src": "images/stanbicLogo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable any"
     }
   ],
-  "share_target": {
-    "action": "/share-photo",
-    "method": "POST",
-    "enctype": "multipart/form-data",
-    "params": {
-      "title": "name",
-      "text": "description",
-      "url": "link",
-      "files": [
-        {
-          "name": "photos",
-          "accept": "image/png"
-        }
-      ]
-    }
-  },
-  "theme_color": "#000000",
+  "theme_color": "#0033A1",
   "background_color": "#FFFFFF",
   "display": "fullscreen",
   "orientation": "portrait"

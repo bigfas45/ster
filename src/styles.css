@@ -1,0 +1,109 @@
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+    transition: all 300ms linear !important;
+    transition-delay: 0ms !important;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--backgrund-colour);
+}
+
+
+*::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: rgba(245, 245, 245, 0);
+    border-radius: 10px;
+}
+
+*::-webkit-scrollbar
+{
+    width: 10px;
+    height: 10px;
+    background-color: rgba(245, 245, 245, 0);
+}
+
+*::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-image: linear-gradient(134.34deg, #0033AA 0%, #0089FF 67.6%);
+}
+
+
+.stanbicMain {
+    font-family: BentonSansRegular, serif;
+    box-sizing: border-box;
+    background: var(--backgrundColour);
+    font-size: 12px;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 262px calc(100vw - 262px);
+}
+.stanbicMain .sideBar {
+    height: 100vh;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.stanbicMain .stanbicBaseApplicationMainContainer {
+    height: 100vh;
+}
+.stanbicMain .stanbicBaseApplicationMainContainer .header {
+    height: 70px;
+    width: 100%;
+    overflow: visible;
+}
+.stanbicMain .stanbicBaseApplicationMainContainer .stanbicBaseApplicationMain {
+    width: 100%;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    background: #E5E5E5;
+}
+
+.fullDisplayMode {
+    display: block;
+}
+.fullDisplayMode .sideBar {
+    display: none;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.fullDisplayMode .stanbicBaseApplicationMainContainer .header {
+    display: none;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+.fullDisplayMode .stanbicBaseApplicationMainContainer .stanbicBaseApplicationMain {
+    width: 100vw;
+    height: 100vh;
+}
+
+
+@media (max-width: 800px) {
+    .stanbicMain .sideBar {
+        position: fixed;
+        top: 0;
+        left: -262px;
+        transition: 200ms linear left;
+    }
+
+    .stanbicMain .stanbicBaseApplicationMainContainer {
+        width: 100vw;
+        transition: 200ms linear width;
+    }
+
+    .stanbicMain .stanbicBaseApplicationMainContainer .stanbicBaseApplicationMain {
+        height: calc(100vh - 70px);
+        transition: 200ms linear height;
+    }
+}
