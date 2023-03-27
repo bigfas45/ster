@@ -11,7 +11,7 @@
             .then(data => {return data.json()})
             .then(res => {
               const appList = res.content
-              localStorage.setItem('ApplicationList', JSON.stringify(res.content))
+              localStorage.setItem('ApplicationList', JSON.stringify(res))
             })
   </script>
   <link rel="manifest" href="/manifest.json">
