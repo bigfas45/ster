@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>StanbicIBTC Bank</title>
+  <title>Sterling Bank</title>
   <script type="text/javascript">
-    const request =  fetch('https://app.stanbicibtc.com/Ocelot_Admin/api/control')
+    const request =  fetch('https://sterling.dev/api/control')
     request
             .then(data => {return data.json()})
             .then(res => {
@@ -208,9 +208,9 @@
       const s = document.createElement("script");
       s.setAttribute( 'type', 'systemjs-importmap' );
       switch (currentLanguage) {
-        case 'en-us': s.setAttribute( 'src', 'https://app.stanbicibtc.com/Ocelot_Admin/public/importmap/en/importmap.json' ); break;
-        case 'zh-cn': s.setAttribute( 'src', 'https://app.stanbicibtc.com/Ocelot_Admin/public/importmap/ch/importmap.json' ); break;
-        default: s.setAttribute( 'src', 'https://app.stanbicibtc.com/Ocelot_Admin/public/importmap/en/importmap.json' )
+        case 'en-us': s.setAttribute( 'src', 'https://chenkenz.fra1.cdn.digitaloceanspaces.com/english/importmap.json' ); break;
+        case 'zh-cn': s.setAttribute( 'src', 'https://chenkenz.fra1.cdn.digitaloceanspaces.com/english/importmap.json' ); break;
+        default: s.setAttribute( 'src', 'https://chenkenz.fra1.cdn.digitaloceanspaces.com/english/importmap.json' )
       }
 
       document.head.appendChild( s );

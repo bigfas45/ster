@@ -1,0 +1,175 @@
+@use "../../../variables" as vrbles;
+
+$colorAry: "A" vrbles.$colorblu2 vrbles.$colorblu2-light,
+  "B" vrbles.$coloryel vrbles.$coloryel-light,
+  "C" vrbles.$colorpup vrbles.$colorpup-light,
+  "D" vrbles.$colororg vrbles.$colororg-light,
+  "E" vrbles.$colorgrn vrbles.$colorgrn-light,
+  "F" vrbles.$colorred vrbles.$colorred-light,
+  "G" vrbles.$colorcyan vrbles.$colorcyan-light,
+  "H" vrbles.$colorpurpdark vrbles.$colorpurpdark-light,
+  "I" vrbles.$colorpink vrbles.$colorpink-light,
+  "J" vrbles.$colorgrnlight vrbles.$colorgrnlight-light,
+  "K" vrbles.$colorbluebr vrbles.$colorbluebr-light,
+  "L" vrbles.$colorblunav vrbles.$colorblunav-light,
+  "M" vrbles.$coloryel vrbles.$coloryel-light,
+  "N" vrbles.$colorpup vrbles.$colorpup-light,
+  "O" vrbles.$colororg vrbles.$colororg-light,
+  "P" vrbles.$colorblu2 vrbles.$colorblu2-light,
+  "Q" vrbles.$coloryel vrbles.$coloryel-light,
+  "R" vrbles.$colorpup vrbles.$colorpup-light,
+  "S" vrbles.$colororg vrbles.$colororg-light,
+  "T" vrbles.$colorgrn vrbles.$colorgrn-light,
+  "U" vrbles.$colorred vrbles.$colorred-light,
+  "V" vrbles.$colorred vrbles.$colorred-light,
+  "W" vrbles.$colorred vrbles.$colorred-light,
+  "X" vrbles.$colorred vrbles.$colorred-light,
+  "Y" vrbles.$colorred vrbles.$colorred-light,
+  "Z" vrbles.$colorred vrbles.$colorred-light;
+
+  @mixin colSphere($alp: "", $color: "") {
+    .s#{$alp} {
+      background-color: $color;
+    }
+  }
+
+  @each $alp, $col1, $col2 in $colorAry {
+    @include colSphere($alp, $col1);
+  }
+
+  h3 {
+    font-size: 16px;
+    font-family: "BentonSansBold";
+  }
+
+  strong {
+    font-size: 14px;
+    font-family: "BentonSansMedium";
+  }
+
+  p {
+    font-family: "BentonSansRegular";
+    font-size: 14px;
+  }
+
+.bankslist-dialog-container {
+  overflow-x: hidden;
+  max-width: 450px;
+  width: 70vw;
+  padding: 24px;
+  background-color: var(--transfer-cardBackground);
+
+
+  strong.top-level {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: var(--transfer-PrimaryText);
+  }
+
+  .likely-banks {
+    #search-list {
+      width: 98%;
+      position: relative;
+      margin-right: 10px !important;
+
+      mat-icon {
+        position: absolute;
+        top: 50%;
+        right: 2%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .mat-list {
+      .mat-list-item {
+        cursor: pointer;
+        width: unset !important;
+        padding: 12px;
+        border-radius: 10px;
+        margin-right: 10px;
+        height: unset !important;
+        &.shaded {
+          background-color: #efefef;
+        }
+
+        &.otherbanks {
+          margin-top: 14px
+        }
+
+        .sphere {
+          @include colSphere();
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 38px;
+          margin-right: 12px;
+          aspect-ratio: 1/1;
+          border-radius: 50%;
+          h3 {
+            color: var(--transfer-PrimaryText);
+          }
+
+          &.otherBanks{
+            background-color:#0160BC ;
+          }
+        }
+
+        // .image {
+        //   position: relative;
+        //   margin-right: 16px;
+
+        //   &::after {
+        //     content: "O";
+        //     position: absolute;
+        //     font-size: 18px;
+        //     font-weight: 400px;
+        //     color: #fff;
+        //     transform: translate(43%, -54%);
+        //     top: 50%;
+        //     right: 50%;
+        //   }
+        //   img {
+        //     margin: 0;
+        //   }
+        // }
+
+        // img {
+        //   margin-right: 16px;
+        //   width: 40px;
+        // }
+        strong {
+          display: block;
+        }
+      }
+    }
+
+    &.full-list {
+      height: 60vh;
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .bankslist-dialog-container {
+  }
+}
+
+mat-dialog-container {
+  border-radius: 20px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  
+  background-color: var( --transfer-backgroundColour) !important;
+  color: var( --transfer-PrimaryText);
+  border-radius: 5px;
+  margin: 0 !important;
+}
+
+// ::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex  {
+//   margin-top: unset !important;
+// }
+
+

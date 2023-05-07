@@ -1,0 +1,22 @@
+<section class="delete-dialog-container">
+  <div class="confirm-page" *ngIf="page === 'confim'">
+    <h3>{{heading }}</h3>
+    <p>{{message}}</p>
+    <div class="actions">
+      <button
+            mat-flat-button
+            id="cancel"
+            (click) = "cancel()"
+          >
+            CANCEL
+          </button>
+      <button
+            mat-flat-button
+            id="delete"
+            (click) = "delete()"
+          >
+            DELETE
+          </button>
+    </div>
+  </div>
+</section>

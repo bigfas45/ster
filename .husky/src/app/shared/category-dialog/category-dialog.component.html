@@ -1,0 +1,37 @@
+<div class="dialog-container">
+  <div class="header">
+    <div class="header-left">
+      <h3>Select Transaction Category</h3>
+      <p id="category-select">Select category from the list</p>
+    </div>
+    <button
+      class="mat-elevation-z0"
+      id="cancel"
+      color="primary"
+      mat-mini-fab
+      aria-label="cancel"
+      disableRipple="true"
+      (click)="closeDialog ()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="category-list">
+    <div
+      class="most-frequent-transactions"
+      *ngFor="let category of categories; let i = index"
+      (click)="categorySelect(category)"
+    >
+      <div class="sphere s{{ category.name.slice(0, 1) }}">
+        <fa-icon [icon]="category.icon" class="cat-icons"></fa-icon>
+      </div>
+      <div class="category-descr">
+        <strong>{{ category.name }}</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button mat-stroked-button (click)="closeDialog()" >CANCEL</button>
+  </div>
+</div>

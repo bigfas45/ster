@@ -1,0 +1,204 @@
+p {
+  font-family: "BentonSansRegular";
+  font-size: 14px;
+  color: #616e88;
+  line-height: 24px;
+}
+
+strong {
+  font-size: 14px;
+}
+
+h3 {
+  font-size: 16px;
+  font-family: "BentonSansMedium";
+}
+
+strong,
+button {
+  font-family: "BentonSansMedium";
+}
+
+button {
+  font-size: 12px;
+  height: 42px;
+  padding: 0 5%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.beneficiary-otp-dialog-container {
+  .loader{
+    margin-bottom: 16px;
+  }
+  min-width: 20vw;
+  .delete-page {
+
+    button {
+      &#cancel {
+        background-color: #efefef;
+        color: #616e88;
+      }
+
+      &#delete {
+        background-color: #f24040;
+        color: #fff;
+      }
+    }
+
+    .actions {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  #confirm-OTP {
+    display: grid;
+
+    h3 {
+      margin-bottom: 24px;
+    }
+
+    .enter-otp {
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+
+      img {
+        margin-right: 5%;
+      }
+    }
+
+    .mat-form-field#OTP {
+      margin-bottom: -24px;
+    }
+
+    mat-form-field {
+      width: 100%;
+    }
+
+    #sendOTP {
+      color: blue;
+      margin: 0;
+
+      &:disabled {
+        color: rgb(179, 179, 179);
+      }
+    }
+
+    .otp-reset-container {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+
+      button {
+        padding: 0;
+      }
+
+      h3 {
+        display: inline;
+      }
+    }
+
+    .lower-buttons {
+      display: flex;
+      margin-bottom: 4%;
+      margin-top: 10%;
+    }
+  }
+
+  .action-status-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 350px;
+    text-align: center;
+
+    p {
+      color: #616E88;
+      font-size: 14px;
+    }
+
+    strong, p {
+      margin-block: 16px;
+    }
+
+    .icon-container {
+      position: relative;
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #e3eaed;
+      margin-bottom: 5%;
+
+      mat-icon {
+        &#done {
+          color: rgb(5, 150, 0);
+        }
+        &#fail {
+          color: red;
+        }
+
+        transform: scale(1.5);
+      }
+    }
+    .actions {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      button {
+        // &#close {
+        //   margin-right: 30px;
+        // }
+        padding: 0 45px;
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+button#confirm-otp {
+  margin-right: 10%;
+  font-size: 12px;
+  height: 42px;
+}
+
+button#cancel {
+  font-size: 12px;
+  height: 42px;
+  margin-right: 24px;
+}
+
+@media (max-width: 700px) {
+  mat-dialog-content {
+    padding: 8% 8%;
+  }
+  .lower-buttons {
+    display: block;
+  }
+}
+
+mat-dialog-container {
+  padding: 58px 60px !important;
+  border-radius: 20px !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  background-color: #EFEFEF !important;
+  border-radius: 5px;
+  margin: 0 !important;
+}
+
+ .mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline {
+  color: red !important;
+}

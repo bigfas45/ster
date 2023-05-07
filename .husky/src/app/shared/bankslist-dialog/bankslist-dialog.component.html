@@ -1,0 +1,57 @@
+<div class="bankslist-dialog-container">
+  <div class="sticky-element">
+    <strong class="top-level">Select recepient bank</strong>
+  </div>
+
+
+  <div class="likely-banks" *ngIf="page == 0">
+    <mat-list role="list">
+      <mat-list-item role="listitem" class="banksProb" *ngFor="let bank of likelyBanks; let i = index" [ngClass]="{'shaded': i%2 == 0 }" (click)="bankSelect(bank)">
+        <div class="sphere s{{ bank.name.slice(0, 1) }}">
+          <h3>{{ bank.name.slice(0, 2) | titlecase }}</h3>
+
+        </div>
+        <!-- <img [src]="'images/' + bank.logo + '.png' | assetUrl" alt="" /> -->
+        <strong>{{bank.name | titlecase}}</strong>
+      </mat-list-item>
+      <mat-list-item role="listitem" class="banksProb otherbanks" ngClass="shaded" (click) = "showMoreBanks()">
+        <div class="sphere otherBanks">
+          <h3>O</h3>
+        </div>
+        <strong>OTHER BANKS</strong>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+   <div class="likely-banks full-list" *ngIf="page == 1">
+     <div class="sticky-element">
+      <mat-form-field id="search-list" appearance="outline">
+        <mat-label>Search</mat-label>
+        <input
+          matInput
+          placeholder="Type to search for bank"
+          name="search"
+          type="text"
+          [(ngModel)] = "searchText"
+
+        />
+        <mat-icon>
+          search
+        </mat-icon>
+      </mat-form-field>
+     </div>
+
+    <mat-list role="list" class="full-list">
+      <mat-list-item role="listitem" class="banksProb" *ngFor="let bank of banks | filter :  searchText; let i = index" [ngClass]="{'shaded': i%2 == 0 }" (click) = "bankSelect(bank)">
+        <strong>{{bank.name | titlecase}}</strong>
+      </mat-list-item>
+      <!-- <mat-list-item role="listitem" class="banksProb" ngClass="shaded">
+        <div class="image">
+          <img [src]="'images/other.png' | assetUrl" alt="" />
+        </div>
+        <strong>OTHER BANKS</strong>
+      </mat-list-item> -->
+    </mat-list>
+  </div>
+
+</div>

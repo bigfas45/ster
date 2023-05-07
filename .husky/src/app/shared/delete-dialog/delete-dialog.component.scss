@@ -1,0 +1,30 @@
+section.delete-dialog-container {
+  padding: 15px;
+  width: 15vw;
+
+  h3, p {
+    font-size: 14px;
+    margin: 6px;
+  }
+
+  button {
+
+    &#cancel {
+      background-color: #EFEFEF;
+      color: #616E88;
+    }
+
+    &#delete {
+      background-color: #F24040;
+      color: #fff;
+    }
+
+  }
+
+
+  .actions {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+  }
+}

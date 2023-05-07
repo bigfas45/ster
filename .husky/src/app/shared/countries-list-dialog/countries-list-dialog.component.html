@@ -1,0 +1,27 @@
+<div class="countrylist-dialog-container">
+  <strong class="top-level">Select country</strong>
+
+   <div class="countries" >
+    <mat-form-field id="search-list" appearance="outline">
+      <mat-label>Search</mat-label>
+      <input
+        matInput
+        placeholder="Type to search for bank"
+        name="search"
+        type="text"
+        [(ngModel)] = "searchText"
+
+      />
+      <mat-icon>
+        search
+      </mat-icon>
+    </mat-form-field>
+    <mat-list role="list" class="full-list">
+      <mat-list-item role="listitem"  *ngFor="let country of countries | filter :  searchText; let i = index" [ngClass]="{'shaded': i%2 == 0 }" (click) = "countrySelect(country)">
+        <strong>{{country.countryName}}</strong>
+      </mat-list-item>
+
+    </mat-list>
+  </div>
+
+</div>

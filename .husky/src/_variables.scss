@@ -1,0 +1,79 @@
+// Font-Size
+$fs-small:12px;
+$fs-medium:14px;
+$fs-large: 16px;
+$fx-xlarge: 18px;
+
+// Colors
+$colorprim: #000;
+$colorsec: #fff;
+$cololortet: #616E88;
+$colorblu1: #0033AA;
+$colorblu2: #4358EF;
+$colorblu2-light: rgba(67, 88, 239, 0.08);
+$coloryel: #FFC107;
+$coloryel-light: rgba(255, 193, 7, 0.08);
+$colorpup: #D809B7;
+$colorpup-light: rgba(216, 9, 183, 0.08);
+$colororg:  #FF7A00;
+$colororg-light: rgba(255, 122, 0, 0.1);
+$colorgrn: #00B976;
+$colorgrn-light: rgba(0, 185, 118, 0.08);
+$colorred: #F44336;
+$colorred-light: rgba(244, 67, 54, 0.1);
+$colorcyan: #0AD2DF;
+$colorcyan-light:rgba(10, 210, 223, 0.1);
+$colorpurpdark: #9E00FF;
+$colorpurpdark-light:rgba(158, 0, 255, 0.1);
+// $colorpurpdark: #9E00FF;
+// $colorpurpdark-light:rgba(158, 0, 255, 0.1);
+$colorpink: #FF006B;
+$colorpink-light:rgba(255, 0, 107, 0.1);
+$colorgrnlight: #08E1BA;
+$colorgrnlight-light:rgba(8, 225, 186, 0.1);
+$colorbluebr: #00C2FF;
+$colorbluebr-light:rgba(0, 194, 255, 0.1);
+$colorblunav: #0500FF;
+$colorblunav-light:rgba(5, 0, 255, 0.1);;
+
+
+// Mixins
+
+@mixin flex($dis:flex, $justCont:"", $alItems:"", $flexdirec:""){
+  display: $dis;
+  justify-content: $justCont;
+  align-items:$alItems ;
+  flex-direction: $flexdirec;
+}
+
+@mixin grid($dis:grid,$tempColum:"", $tempRows:auto, $gap:""){
+  display: $dis;
+  grid-template-columns: $tempColum;
+  grid-template-rows:$tempRows;
+  gap:$gap
+}
+
+@mixin section(
+  $dis:grid,
+  // $tempColum:repeat(auto-fit, minmax(300px, 1fr)),
+  $tempColum:repeat(3, 1fr),
+  $tempRows:auto,
+  $gap:2.1%) {
+    display: $dis;
+    grid-template-columns: $tempColum;
+    grid-template-rows:$tempRows;
+    gap:$gap
+  }
+
+@mixin cardDefinition() {
+    position: relative;
+    border-radius: 10px;
+    padding: 4%;
+    width: 100%;
+    max-width: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-self: center;
+    color: $colorsec;
+}
+

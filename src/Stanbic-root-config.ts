@@ -1,11 +1,11 @@
-import { registerApplication, start, navigateToUrl } from "single-spa";
+import { registerApplication, start, navigateToUrl } from 'single-spa';
 import {
   constructApplications,
   constructRoutes,
   constructLayoutEngine,
-} from "single-spa-layout";
+} from 'single-spa-layout';
 
-let templateRouteCode = "";
+let templateRouteCode = '';
 
 const data: any = {
   loaders: {
@@ -15,13 +15,13 @@ const data: any = {
 };
 
 async function loadApplications() {
-  const applicationList = JSON.parse(localStorage.getItem("ApplicationList"));
+  const applicationList = JSON.parse(localStorage.getItem('ApplicationList'));
 
   await applicationList.forEach((app, index) => {
     if (app.result.appRoute) {
       const routeCode = `<route path="${app.result.appRoute}">
         <application loader="${
-          app.result.appName === "@stanbic/home" ? "home" : "loading"
+          app.result.appName === '@stanbic/home' ? 'home' : 'loading'
         }" name="${app.result.appName}"></application>
       </route>
       `;
@@ -50,7 +50,7 @@ function startApplication() {
     </main>
   </single-spa-router>
   `,
-    data
+    data,
   );
 
   const applications = constructApplications({
@@ -65,20 +65,20 @@ function startApplication() {
   layoutEngine.activate();
   start();
 
-  window.addEventListener("single-spa:before-routing-event", (evt: any) => {
-    const userId = localStorage.getItem("userId");
-    const authData = localStorage.getItem("authData");
+  window.addEventListener('single-spa:before-routing-event', (evt: any) => {
+    const userId = localStorage.getItem('userId');
+    const authData = localStorage.getItem('authData');
 
     // if (userId === null || authData === null) {
     //   navigateToUrl("/auth");
     // }
 
-    const stanbicMain = document.querySelector("#stanbicMain") as HTMLElement;
+    const stanbicMain = document.querySelector('#stanbicMain') as HTMLElement;
 
-    if (evt.detail.newUrl.includes("/auth")) {
-      stanbicMain.classList.add("fullDisplayMode");
+    if (evt.detail.newUrl.includes('/auth')) {
+      stanbicMain.classList.add('fullDisplayMode');
     } else {
-      stanbicMain.classList.remove("fullDisplayMode");
+      stanbicMain.classList.remove('fullDisplayMode');
     }
   });
 }

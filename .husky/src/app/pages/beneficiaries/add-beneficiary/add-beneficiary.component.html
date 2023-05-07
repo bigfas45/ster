@@ -1,0 +1,250 @@
+<section class="add-beneficiary-container">
+  <div class="loader" *ngIf="loaderIsActive">
+    <mat-progress-bar mode="indeterminate" color="primary"></mat-progress-bar>
+  </div>
+
+
+  <button mat-button class="back" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+    <p i18n>Go Back</p>
+  </button>
+
+  <div class="form-page" *ngIf="page === 'form'">
+    <div class="body">
+      <div class="beneficiary-photo">
+        <img [src]="'images/default-photo.png' | assetUrl" alt="" *ngIf="beneficiaryPhoto == null"/>
+        <img [src]="beneficiaryPhoto" alt="" *ngIf="beneficiaryPhoto !== null"/>
+      </div>
+
+      <div class="input image-upload" >
+        <div  class="file-input">
+          <input
+            styles = "display:none"
+            type="file"
+            #fileUpload
+            accept="image/jpeg, image/png, image/jpg"
+            (change)="onImageUpload($event)"
+          />
+        </div>
+
+        <button
+          mat-flat-button
+          id="upload"
+          type="button"
+          (click)="fileUpload.click()"
+          class="image-upload"
+        >
+    Add Passport Photo
+        </button>
+      </div>
+
+      <br>
+      <br>
+
+      <form [formGroup]="beneficiaryForm" (ngSubmit)="sendOtp($event, 'send')">
+        <div class="form-group">
+
+          <div class="input name">
+            <mat-form-field appearance="outline" id="account">
+              <mat-label i18n>Name <mat-icon>
+                emergency
+              </mat-icon></mat-label>
+              <input
+                matInput
+                type="text"
+                maxlength="30"
+                minlength="8"
+                i18n-placeholder="Enter beneficiary name"
+                formControlName="name"
+                (keyup)="formatName('name')"
+              />
+              <mat-error *ngIf="beneficiaryForm.get('name').hasError('required')" i18n>
+                Please enter a name
+              </mat-error>
+ <!-- <mat-error  i18n>
+              Please enter a name
+            </mat-error> -->
+              
+            </mat-form-field>
+          </div>
+
+          <div class="input account-no">
+            <mat-form-field appearance="outline" id="account">
+              <mat-label i18n>Account <mat-icon>
+                emergency
+              </mat-icon></mat-label>
+              <input
+                matInput
+                type="text"
+                i18n-placeholder="Account Number"
+                formControlName="account-number"
+                maxlength="10"
+                minlength="10"
+                (keyup)="setBeneficiaryDetails()"
+              />
+              <mat-error *ngIf="beneficiaryForm.get('account-number').hasError('required')" i18n>
+                Please enter a valid account
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <button
+            mat-button
+            class="input input-button recepient-bank"
+            (click)="bankSelect()"
+            type="button"
+
+          >
+            <p *ngIf="selectedBank == null" i18n>Recipient Bank<mat-icon>
+              emergency
+            </mat-icon></p>
+            <p *ngIf="selectedBank != null" i18n>{{ selectedBank.name }}<mat-icon>
+              emergency
+            </mat-icon></p>
+            <mat-icon i18n>expand_more</mat-icon>
+            <!-- <small *ngIf=" beneficiaryForm.get('bank').hasError('required')" >Please select a bank</small> -->
+          </button>
+
+           <div class="beneficiary-details" *ngIf="nameEnquiryDetails">
+            <div class="beneficiary-details-profileImg">
+              <img [src]="'images/Profile.png' | assetUrl" alt="" />
+            </div>
+            <div class="beneficiary-details-text">
+              <small i18n>BENEFICIARY DETAILS</small>
+              <p>Michael Scott </p>
+              <p *ngIf="selectedBank">{{selectedBank.name}}</p>
+            </div>
+             <!-- <div class="beneficiary-details-text">
+              <small i18n>BENEFICIARY DETAILS</small>
+              <p>{{nameEnquiryDetails.destinationAccountName}}<mat-icon>
+                emergency
+              </mat-icon></p>
+              <p *ngIf="selectedBank">{{selectedBank.name}}<mat-icon>
+                emergency
+              </mat-icon></p>
+            </div> --> -->
+          </div> 
+
+        </div>
+
+        <div class="actions">
+          <button
+            mat-flat-button
+            color="primary"
+            id="add-beneficiary"
+            type="submit"
+            [disabled]="beneficiaryForm.invalid "
+            *ngIf="!editMode"
+            i18n >
+            ADD BENEFICIARY
+          </button>
+          <button
+            mat-flat-button
+            color="primary"
+            id="add-beneficiary"
+            type="submit"
+            [disabled]="beneficiaryForm.invalid "
+            *ngIf="editMode"
+            i18n>
+            UPDATE BENEFICIARY
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+
+   <!-- otp Screen -->
+   <div class="otp-page" *ngIf="page === 'otp'">
+    <!-- <button mat-button class="back" (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+      <p>Go Back</p>
+    </button> -->
+    <div class="otp-page-body">
+      <strong> Confirm </strong>
+
+      <div id="confirm-OTP">
+        <div class="enter-otp">
+          <img [src]="'images/smartphone 1.png' | assetUrl" alt="Phone" />
+          <p>Please input the OTP sent to your mobile number</p>
+        </div>
+        <form
+          class="otp-form-group"
+          (ngSubmit)="onValidateOneTimePasscode(false)"
+          #otpForm="ngForm"
+        >
+          <mat-form-field id="OTP" appearance="outline">
+            <mat-label>OTP</mat-label>
+            <input
+              matInput
+              placeholder="Enter OTP"
+              ngModel
+              name="otp"
+              type="text"
+              required
+              minlength="5"
+              maxlength="5"
+              pattern="[0-9]*"
+              #otp="ngModel"
+              (keydown)="otpNumberFormat()"
+            />
+            <mat-error *ngIf="otp.hasError('minlength')">
+              Please enter a valid number (5 digits long)
+            </mat-error>
+          </mat-form-field>
+          <div class="otp-reset-container">
+            <button
+              mat-button
+              color="basic"
+              id="sendOTP"
+              disableRipple
+              [disabled]="timer != 0"
+              type="button"
+              (click)="sendOtp($event, 'resend')"
+              [disabled]="loaderIsActive || timer !=0"
+            >
+              Resend OTP
+            </button>
+            <P
+              >OTP Expires in
+              <span
+                ><strong>
+                  {{ minutes }}:{{ seconds < 10 ? "0" + seconds : seconds }}
+                </strong></span
+              >
+            </P>
+          </div>
+
+          <div class="lower-buttons">
+            <button
+              mat-flat-button
+              color="primary"
+              id="confirm-otp"
+              type="submit"
+              [disabled]="loaderIsActive || otpForm.invalid"
+            >
+              Confirm
+            </button>
+
+            <button
+              mat-stroked-button
+              color="basic"
+              id="cancel"
+              type="button"
+              (click)="onCancel()"
+              mat-dialog-close
+              [disabled]="loaderIsActive
+              "
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+

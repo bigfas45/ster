@@ -1,0 +1,385 @@
+<section class="fund-card-container">
+  <div class="loader" *ngIf="loaderIsActive">
+    <mat-progress-bar mode="indeterminate" color="primary"></mat-progress-bar>
+  </div>
+
+  <strong i18n>Fill all input field</strong>
+  <p id="steps">Step {{pageStep}} of 3</p>
+
+  <!-- Page 1 Form -->
+  <form
+    [formGroup]="customerDetailsForm"
+    (ngSubmit)="nextStage('customer-details')"
+    *ngIf="page === 'customer-details'"
+  >
+    <div class="form-group">
+      <!-- Customer Id Input -->
+      <div class="input customer_id">
+        <mat-form-field appearance="outline">
+          <mat-label i18n>Customer Id<mat-icon>
+            emergency
+          </mat-icon></mat-label>
+          <input
+            [(ngModel)]="prepaidCardFormDetail.customerId"
+            matInput
+            type="text"
+            i18n-placeholder="Enter Customer Id"
+            formControlName="customer_id"
+            minlength="9"
+            maxlength="9"
+            (keyup)="formatNumber('customer-details')"
+          />
+          <mat-error
+            *ngIf="customerDetailsForm.get('customer_id').hasError('required')"
+            i18n>
+            Please enter customer Id 
+          </mat-error>
+          <mat-error
+            *ngIf="customerDetailsForm.get('customer_id').hasError('minlength')"
+            i18n>
+            Please enter a valid Id
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Card Type Input -->
+      <button
+        mat-button
+        class="input input-button card-type"
+        [matMenuTriggerFor]="cardTypeMenu"
+        [ngClass]="{
+          invalid:
+            nextButtonClicked &&
+            customerDetailsForm.get('card_type').hasError('required')
+        }"
+        type="button"
+      >
+        <p *ngIf="prepaidCardFormDetail.cardType == null">Select a card type <mat-icon>
+          emergency
+        </mat-icon></p>
+        <p *ngIf="prepaidCardFormDetail.cardType != null">
+          {{ prepaidCardFormDetail.cardType }}
+        </p>
+        <mat-icon>expand_more</mat-icon>
+        <small
+          *ngIf="
+            nextButtonClicked &&
+            customerDetailsForm.get('card_type').hasError('required')
+          "
+          i18n>Please select a card type </small
+        >
+      </button>
+      <mat-menu #cardTypeMenu="matMenu" class="mat-menu">
+        <mat-list role="list">
+          <mat-list-item
+            [ngClass]="{ end: i === cardTypes.length - 1 }"
+            role="listitem"
+            *ngFor="let cardType of cardTypes; let i = index"
+            (click)="cardTypeSelect(i)"
+          >
+            <p>
+              {{ cardType }}
+            </p>
+          </mat-list-item>
+        </mat-list>
+      </mat-menu>
+    </div>
+
+    <div class="actions">
+      <button
+        mat-flat-button
+        color="primary"
+        id="confirm-otp"
+        type="submit"
+        [disabled]="loaderIsActive || customerDetailsForm.invalid"
+        i18n>
+        NEXT
+      </button>
+
+      <button
+        mat-stroked-button
+        id="cancel"
+        type="button"
+        (click)="onCancel('customer-details')"
+        [disabled]="loaderIsActive"
+        i18n>
+        CANCEL
+      </button>
+    </div>
+  </form>
+
+  <!-- Page 2 Form -->
+  <form
+    [formGroup]="cardFundingDetailsForm"
+    (ngSubmit)="nextStage('card-details')"
+    *ngIf="page === 'card-details'"
+  >
+    <div class="form-group card-details">
+      <!-- Preferred Name -->
+      <div class="input preferred_name">
+        <mat-form-field appearance="outline">
+          <mat-label i18n>Preferred Name <mat-icon>
+            emergency
+          </mat-icon></mat-label>
+          <input
+            matInput
+            type="text"
+            i18n-placeholder="Enter preferred name "
+            formControlName="pref_name"
+            (keyup)="formatName('pref_name')"
+            [(ngModel)]="prepaidCardFormDetail.preferredName"
+          />
+          <mat-error
+            *ngIf="cardFundingDetailsForm.get('pref_name').hasError('required')"
+            i18n>
+            Please enter a name
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Debited Account -->
+      <button
+        mat-button
+        class="input input-button"
+        [matMenuTriggerFor]="accounSelectMenu"
+        [ngClass]="{
+          invalid:
+            nextButtonClicked &&
+            cardFundingDetailsForm.get('debit_account').hasError('required')
+        }"
+        type="button"
+      >
+        <p *ngIf="prepaidCardFormDetail.accountToDebit == null" i18n>
+          Select account to debit <mat-icon>
+            emergency
+          </mat-icon>
+        </p>
+        <p *ngIf="prepaidCardFormDetail.accountToDebit != null">
+          {{ prepaidCardFormDetail.accountToDebit.accountNumber }}
+        </p>
+        <mat-icon>expand_more</mat-icon>
+        <small
+          *ngIf="
+            nextButtonClicked &&
+            cardFundingDetailsForm.get('debited-account').hasError('required')
+          "
+          i18n>Please select an account</small
+        >
+      </button>
+      <mat-menu #accounSelectMenu="matMenu" class="mat-menu">
+        <mat-list role="list">
+          <mat-list-item
+            [ngClass]="{ end: i === accountList.length - 1 }"
+            role="listitem"
+            *ngFor="let account of accountList; let i = index"
+            (click)="onAccountSelect(i)"
+          >
+            <strong
+              >{{ account.accountNumber }} - {{ account.currency }}</strong
+            >
+            <p i18n>
+              Available Balance - {{ account.availableBalance }}
+              {{ account.currency }}
+            </p>
+          </mat-list-item>
+        </mat-list>
+      </mat-menu>
+
+      <!-- Amount -->
+      <div class="input amount">
+        <mat-form-field appearance="outline">
+          <mat-label i18n>Amount <mat-icon>
+            emergency
+          </mat-icon></mat-label>
+          <input
+            [(ngModel)]="prepaidCardFormDetail.amount"
+            matInput
+            type="text"
+            placeholder="Enter Amount"
+            formControlName="amount"
+            (keyup)="formatNumber('amount')"
+          />
+          <mat-error
+            *ngIf="cardFundingDetailsForm.get('amount').hasError('required')"
+            i18n>
+            Please enter a valid amount
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Narration -->
+      <div class="input narration">
+        <mat-form-field appearance="outline" >
+          <mat-label i18n>Transaction Narration <mat-icon>
+            emergency
+          </mat-icon></mat-label>
+          <input
+            matInput
+            type="text"
+            placeholder="Enter transaction narration"
+            formControlName="narration"
+            [(ngModel)]="prepaidCardFormDetail.narration"
+          />
+          <mat-error
+            *ngIf="cardFundingDetailsForm.get('narration').hasError('required')"
+            i18n>
+            Please enter transaction narration
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- Card Number -->
+      <div class="input">
+        <mat-form-field appearance="outline">
+          <mat-label i18n>Card Number <mat-icon>
+            emergency
+          </mat-icon></mat-label>
+          <input
+            [(ngModel)]="prepaidCardFormDetail.cardNumber"
+            matInput
+            type="text"
+            i18n-placeholder="Enter Card Number"
+            formControlName="card_number"
+            (keyup)="formatNumber('card_number')"
+            minlength="4"
+            maxlength="4"
+          />
+          <mat-error
+            *ngIf="cardFundingDetailsForm.get('card_number').hasError('required')"
+            i18n>
+            Please enter card number
+          </mat-error>
+          <mat-error
+            *ngIf="cardFundingDetailsForm.get('card_number').hasError('minlength')"
+            i18n>
+            Please enter a valid card number
+          </mat-error>
+        </mat-form-field>
+      </div>
+      
+      <div class="checkbox">
+        <input type="checkbox" id="content1" name="content1" value="question">
+        <label for="content1"> I have verified that card funding details are correct</label><br>
+        </div>
+    </div>
+   
+    
+    <div class="actions">
+        <button
+          mat-flat-button
+          color="primary"
+          id="confirm-otp"
+          type="submit"
+          [disabled]="loaderIsActive || cardFundingDetailsForm.invalid"
+          i18n >
+          NEXT
+        </button>
+  
+        <button
+          mat-stroked-button
+          id="cancel"
+          type="button"
+          (click)="onCancel('card-details')"
+          [disabled]="loaderIsActive"
+          i18n >
+          CANCEL
+        </button>
+      </div>
+  </form>
+
+  <!-- otp Screen -->
+  <div class="otp-page" *ngIf="page === 'otp'">
+      <button mat-button class="back" (click)="onCancel('otp')">
+        <mat-icon>arrow_back</mat-icon>
+        <p>Go Back</p>
+      </button>
+      <div class="otp-page-body">
+        <strong> Confirm Transaction </strong>
+        <div class="transaction-details">
+          <div class="details-element">
+            <p>Amount</p>
+            <p>N50,000</p>
+          </div>
+          <div class="details-element">
+            <p>Charges</p>
+            <p>N0</p>
+          </div>
+          <div class="details-element">
+            <p>Total</p>
+            <strong>N50,000</strong>
+          </div>
+        </div>
+  
+        <div id="confirm-OTP">
+          <div class="enter-otp">
+            <img [src]="'images/smartphone 1.png' | assetUrl" alt="Phone" />
+            <p>Please input the OTP sent to your mobile number</p>
+          </div>
+          <form class="otp-form-group" (ngSubmit)="onValidateOneTimePasscode()" #otpForm="ngForm">
+            <mat-form-field id="OTP" appearance="outline">
+              <mat-label>OTP</mat-label>
+              <input
+                matInput
+                placeholder="Enter OTP"
+                ngModel
+                name="otp"
+                type="text"
+                required
+                minlength="5"
+                maxlength="5"
+                pattern="[0-9]*"
+                #otp = "ngModel"
+                (keydown)="otpNumberFormat()"
+              />
+              <mat-error *ngIf="otp.hasError('minlength')">
+                Please enter a valid number (5 digits long)
+              </mat-error>
+            </mat-form-field>
+            <div class="otp-reset-container">
+              <button
+                mat-button
+                color="basic"
+                id="sendOTP"
+                disableRipple
+                [disabled]="loaderIsActive || timer !=0"
+                type="button"
+                (click)="initiateOtp()"
+              >
+                Resend OTP
+              </button>
+              <P
+                >OTP Expires in
+                <span
+                  ><strong>
+                    {{ minutes }}:{{ seconds < 10 ? "0" + seconds : seconds }}
+                  </strong></span
+                >
+              </P>
+            </div>
+  
+            <div class="lower-buttons">
+              <button
+                mat-flat-button
+                color="primary"
+                id="confirm-otp"
+                type="submit"
+                [disabled]="otpForm.invalid"
+              >
+                Confirm
+              </button>
+  
+              <button
+                mat-stroked-button
+                color="basic"
+                id="cancel"
+                type="button"
+                (click)="onCancel('otp')"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</section>

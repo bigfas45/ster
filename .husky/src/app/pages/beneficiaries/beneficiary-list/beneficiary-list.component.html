@@ -1,0 +1,57 @@
+<section class="beneficiary-list-container">
+  <div class="loader" *ngIf="loaderIsActive">
+    <mat-progress-bar mode="indeterminate" color="primary"></mat-progress-bar>
+  </div>
+  <button mat-button class="back" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+    <p i18n>Go Back</p>
+  </button>
+  <div class="header">
+    <div class="text">
+      <h3 i18n>All beneficiaries</h3>
+      <p i18n>Remove and manage beneficiaries</p>
+    </div>
+    <button
+      mat-flat-button
+      color="primary"
+      class="add"
+      (click)="addBeneficiary()"
+      i18n>
+      ADD NEW BENEFICIARY
+    </button>
+  </div>
+
+  <div class="beneficiaries-list">
+    <div
+      class="beneficiary"
+      *ngFor="let beneficiary of beneficiaries; let i = index"
+    >
+      <div class="sphere s{{ beneficiary.beneficiaryAlias.slice(0, 1) }}">
+        <h3>
+          {{ beneficiary.beneficiaryAlias.slice(0, 2) }}
+        </h3>
+      </div>
+      <div class="details">
+        <strong>
+          {{ beneficiary.beneficiaryAlias }}
+        </strong>
+        <p>
+          {{ beneficiary.beneficiaryAccountNumber }} -
+          {{ beneficiary.beneficiaryBank }}
+        </p>
+      </div>
+      <div class="actions">
+        <button mat-button class="edit" (click)="editBeneficiary(i)" i18n>
+          EDIT
+        </button>
+        <button
+          mat-icon-button
+          class="delete"
+          (click)="deleteBeneficiary(beneficiary)"
+        >
+          <mat-icon i18n>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

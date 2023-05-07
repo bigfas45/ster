@@ -1,0 +1,260 @@
+<section class="self-transfer-container">
+  <div class="loader" *ngIf="loaderIsActive">
+    <mat-progress-bar mode="indeterminate" color="primary"></mat-progress-bar>
+  </div>
+  <div class="form-page" *ngIf="page === 'form'">
+    <strong i18n>Fill all input field</strong>
+    <p id="steps">Step 1 of 3</p>
+
+    <form [formGroup]="selfTransferForm" (ngSubmit)="sendOtp($event, 'send')">
+      <div class="form-group">
+
+        <!-- Debited Account -->
+        <button
+          mat-button
+          class="input input-button select-account"
+          [matMenuTriggerFor]="accounSelectMenu"
+          [ngClass]="{
+            'invalid':
+              otpSendClicked && selfTransferForm.get('debited-account').hasError('required')
+          }"
+          type="button"
+        >
+          <p *ngIf="selectedDebitAccount == null" i18n>Select account to debit <mat-icon>
+            emergency
+          </mat-icon></p>
+          <p *ngIf="selectedDebitAccount != null">{{ selectedDebitAccount.accountNumber }}</p>
+          <mat-icon>expand_more</mat-icon>
+          <small *ngIf="otpSendClicked && selfTransferForm.get('debited-account').hasError('required')" >Please select an account</small>
+        </button>
+        <mat-menu #accounSelectMenu="matMenu" class="mat-menu">
+           <mat-list role="list">
+            <mat-list-item
+              [ngClass]="{ end: i === accountList.length - 1 }"
+              role="listitem"
+              *ngFor="let account of accountList; let i = index"
+              (click)="onAccountSelect(i, 'debit')"
+            >
+              <strong>{{ account.accountNumber }} - {{ account.currency}}</strong>
+              <p i18n>
+                Available Balance - {{ account.availableBalance }} {{ account.currency }}
+              </p>
+            </mat-list-item>
+          </mat-list>
+        </mat-menu>
+
+        <!-- Credited Account -->
+        <button
+          mat-button
+          class="input input-button select-account debit"
+          [matMenuTriggerFor]="creditAccounSelectMenu"
+          [ngClass]="{
+            'invalid':
+              otpSendClicked && selfTransferForm.get('credited-account').hasError('required')
+          }"
+          type="button"
+        >
+          <p *ngIf="selectedCreditAccount == null" i18n>Select account to credit <mat-icon>
+            emergency
+          </mat-icon></p>
+          <p *ngIf="selectedCreditAccount != null">{{ selectedCreditAccount.accountNumber }}</p>
+          <mat-icon>expand_more</mat-icon>
+          <small *ngIf="otpSendClicked && selfTransferForm.get('credited-account').hasError('required')" >Please select an account</small>
+        </button>
+        <mat-menu #creditAccounSelectMenu="matMenu" class="mat-menu">
+          <mat-list role="list">
+            <mat-list-item
+              [ngClass]="{ end: i === accountList.length - 1 }"
+              role="listitem"
+              *ngFor="let account of accountList; let i = index"
+              (click)="onAccountSelect(i, 'credit')"
+            >
+              <strong>{{ account.accountNumber }} - {{ account.currency}}</strong>
+              <p i18n>
+                Available Balance - {{ account.availableBalance }} {{ account.currency }}
+              </p>
+            </mat-list-item>
+          </mat-list>
+        </mat-menu>
+
+        <!-- Amount -->
+        <div class="input amount">
+          <mat-form-field appearance="outline" id="amount">
+            <mat-label i18n>Amount <mat-icon>
+              emergency
+              </mat-icon></mat-label>
+            <input
+              [(ngModel)]="amountValue"
+              matInput
+              type="text"
+              i18n-placeholder="Enter Amount"
+              formControlName="amount"
+              (keydown)="numberCheck($event)"
+              (keyup)="commaFormat($event)"
+            />
+            <mat-error *ngIf="selfTransferForm.get('amount').hasError('required')" i18n>
+              Please enter a valid amount
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Receipient Details -->
+        <div class="recepient-details" *ngIf="selectedCreditAccount">
+          <div class="recepient-details-profileImg">
+            <img [src]="'images/Profile.png' | assetUrl" alt="" />
+          </div>
+          <div class="recepient-details-text">
+            <small i18n>RECEPIENT DETAILS</small>
+            <p >{{selectedCreditAccount.accountName}}</p>
+            <p i18n>Stanbicibtc Bank</p>
+          </div>
+        </div>
+
+        <button
+          mat-button
+          class="input input-button transaction-category"
+          (click)="categorySelect()"
+          [ngClass]="{
+            'invalid':
+              otpSendClicked && selfTransferForm.get('transaction-category').invalid
+          }"
+          type="button"
+        >
+          <p *ngIf="selectedCategory == null" i18n>Transaction category</p>
+          <p *ngIf="selectedCategory != null">{{ selectedCategory }}</p>
+          <mat-icon>expand_more</mat-icon>
+          <small *ngIf="otpSendClicked && selfTransferForm.get('transaction-category').hasError('required')" >Please select a category</small>
+        </button>
+
+        <!-- Narration -->
+        <div class="input narration">
+          <mat-form-field appearance="outline" id="narration">
+            <mat-label i18n>Narration <mat-icon>
+              emergency
+              </mat-icon></mat-label>
+              <mat-error  i18n>
+                Please enter a narration
+              </mat-error>
+            <input
+              matInput
+              type="text"
+              i18n-placeholder="Enter narration"
+              formControlName="narration"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="actions">
+        <button
+          mat-flat-button
+          color="primary"
+          id="confirm-otp"
+          type="submit"
+          [disabled]="loaderIsActive"
+          i18n>
+          NEXT
+        </button>
+
+        <button mati18n-stroked-button id="cancel" type="button" (click)="onCancel()" [disabled]="  loaderIsActive" >CANCEL</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- otp Screen -->
+  <div class="otp-page" *ngIf="page === 'otp'">
+    <button mat-button class="back" (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+      <p i18n>Go Back</p>
+    </button>
+    <div class="otp-page-body">
+      <strong i18n> Confirm Transaction </strong>
+      <div class="transaction-details">
+        <div class="details-element">
+          <p i18n>Amount</p>
+          <p>NGN{{amountValue }}</p>
+        </div>
+        <div class="details-element">
+          <p i18n>Charges</p>
+          <p i18n>NGN 0</p>
+        </div>
+        <div class="details-element">
+          <p i18n>Total</p>
+          <strong>NGN{{amountValue }}</strong>
+        </div>
+      </div>
+
+      <div id="confirm-OTP">
+        <div class="enter-otp">
+          <img [src]="'images/smartphone 1.png' | assetUrl" alt="Phone" />
+          <p i18n>Please input the OTP sent to your mobile number</p>
+        </div>
+        <form class="otp-form-group" (ngSubmit)="onValidateOneTimePasscode(false)" #otpForm="ngForm">
+          <mat-form-field id="OTP" appearance="outline">
+            <mat-label i18n>OTP</mat-label>
+            <input
+              matInput
+              i18n-placeholder="Enter OTP"
+              ngModel
+              name="otp"
+              type="text"
+              required
+              minlength="5"
+              maxlength="5"
+              pattern="[0-9]*"
+              #otp = "ngModel"
+              (keydown)="otpNumberFormat()"
+            />
+            <mat-error *ngIf="otp.hasError('minlength')" i18n>
+              Please enter a valid number (5 digits long)
+            </mat-error>
+          </mat-form-field>
+          <div class="otp-reset-container">
+            <button
+              mat-button
+              color="basic"
+              id="sendOTP"
+              disableRipple
+              [disabled]="loaderIsActive || timer !=0"
+              type="button"
+              (click)="sendOtp($event, 'resend')"
+              i18n>
+              Resend OTP
+            </button>
+            <P
+            i18n>OTP Expires in
+              <span
+                ><strong>
+                  {{ minutes }}:{{ seconds < 10 ? "0" + seconds : seconds }}
+                </strong></span
+              >
+            </P>
+          </div>
+
+          <div class="lower-buttons">
+            <button
+              mat-flat-button
+              color="primary"
+              id="confirm-otp"
+              type="submit"
+              [disabled]="otpForm.invalid"
+              i18n>
+              Confirm
+            </button>
+
+            <button
+              mat-stroked-button
+              color="basic"
+              id="cancel"
+              type="button"
+              (click)="onCancel()"
+              i18n>
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

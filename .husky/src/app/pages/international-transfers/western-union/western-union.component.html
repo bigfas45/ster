@@ -1,0 +1,352 @@
+<section class="western-union-container">
+  <div class="loader" *ngIf="loaderIsActive">
+    <mat-progress-bar mode="indeterminate" color="primary"></mat-progress-bar>
+  </div>
+  <div class="form-page" *ngIf="page === 'form'">
+    <strong i18n>Fill all input field</strong>
+    <p id="steps">Step 1 of 3</p>
+
+    <form [formGroup]="westernUnionForm" (ngSubmit)="sendOtp( 'send')">
+      <div class="form-group">
+        <!-- Amount -->
+        <div class="input form-field amount">
+          <mat-form-field appearance="outline" id="amount">
+            <mat-label i18n>Amount <mat-icon>
+              emergency
+            </mat-icon></mat-label>
+            <input
+              [(ngModel)]="amountValue"
+              matInput
+              type="text"
+              placeholder="Expected amount"
+              formControlName="amount"
+              (keyup)="amountInputValidation()"
+            />
+            <mat-error
+              *ngIf="westernUnionForm.get('amount').hasError('required')"
+              i18n >
+              Please enter a valid amount
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- MTCN -->
+        <div class="input form-field mtcn">
+          <mat-form-field appearance="outline" id="mtcn">
+            <mat-label i18n>MTCN <mat-icon>
+              emergency
+            </mat-icon></mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="10 digits MTCN"
+              formControlName="mtcn"
+              (keyup)="formatNumber('mtcn')"
+              minlength="10"
+              maxlength="10"
+              [(ngModel)]="MTCNValue"
+            />
+            <mat-error
+              *ngIf="westernUnionForm.get('mtcn').hasError('required')"
+              i18n>
+              Please enter your MTCN
+            </mat-error>
+            <mat-error
+              *ngIf="westernUnionForm.get('mtcn').hasError('minlength')"
+              i18n>
+              Please enter a valid number
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Country -->
+        <button
+          mat-button
+          class="input input-button country"
+          (click)="countrySelect()"
+          [ngClass]="{
+            invalid: otpSendClicked && westernUnionForm.get('country').invalid
+          }"
+          type="button"
+        >
+          <p *ngIf="selectedCountry == null">Select country <mat-icon>
+            emergency
+          </mat-icon></p>
+          <p *ngIf="selectedCountry != null">
+            {{ selectedCountry.countryName }}
+          </p>
+          <mat-icon>expand_more</mat-icon>
+          <small
+            *ngIf="
+              otpSendClicked &&
+              westernUnionForm.get('country').hasError('required')
+            "
+            i18n>Please select a country</small
+          >
+        </button>
+
+        <!-- Security Question -->
+        <!-- <button
+          mat-button
+          class="input input-button security question"
+          [matMenuTriggerFor]="questionSelectMenu"
+          [ngClass]="{
+            invalid:
+              otpSendClicked &&
+              westernUnionForm.get('security-question').hasError('required')
+          }"
+          type="button"
+        >
+          <p *ngIf="selectedQuestion == null">Security Question</p>
+          <p *ngIf="selectedQuestion != null">{{ selectedQuestion }}</p>
+          <mat-icon>expand_more</mat-icon>
+          <small
+            *ngIf="
+              otpSendClicked &&
+              westernUnionForm.get('security-question').hasError('required')
+            "
+            >Please select a question</small
+          >
+        </button>
+        <mat-menu #questionSelectMenu="matMenu" class="mat-menu question">
+          <mat-list role="list">
+            <mat-list-item
+              [ngClass]="{ end: i === securityQuestions.length - 1 }"
+              role="listitem"
+              *ngFor="let question of securityQuestions; let i = index"
+              (click)="onQuestionSelect(i)"
+            >
+              <p>{{ question }}</p>
+            </mat-list-item>
+          </mat-list>
+        </mat-menu> -->
+
+        <!-- Security Question Answer -->
+        <div class="input form-field question-answer">
+          <mat-form-field appearance="outline" id="question-answer">
+            <mat-label i18n>Answer to Security Question<mat-icon>
+              emergency
+            </mat-icon></mat-label>
+            <input
+              matInput
+              type="text"
+              i18n-placeholder="Enter Answer to Question"
+              formControlName="question-answer"
+            />
+            <mat-error
+              *ngIf="
+                westernUnionForm.get('question-answer').hasError('required')
+              "
+              i18n>
+              Please enter an answer
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <!-- Redemption Account Number -->
+        <button
+          mat-button
+          class="input input-button select-account"
+          [matMenuTriggerFor]="accounSelectMenu"
+          [ngClass]="{
+            invalid:
+              otpSendClicked &&
+              westernUnionForm.get('redemption-account').hasError('required')
+          }"
+          type="button"
+        >
+          <p *ngIf="selectedAccount == null" i18n>
+            Select redemption account number<mat-icon>
+              emergency
+            </mat-icon>
+          </p>
+          <p *ngIf="selectedAccount != null">
+            {{ selectedAccount.accountNumber }}
+          </p>
+          <mat-icon>expand_more</mat-icon>
+          <small
+            *ngIf="
+              otpSendClicked &&
+              westernUnionForm.get('redemption-account').hasError('required')
+            "
+            i18n>Please select an account</small
+          >
+        </button>
+        <mat-menu #accounSelectMenu="matMenu" class="mat-menu">
+          <mat-list role="list">
+            <mat-list-item
+              [ngClass]="{ end: i === accountList.length - 1 }"
+              role="listitem"
+              *ngFor="let account of accountList; let i = index"
+              (click)="onAccountSelect(i)"
+            >
+              <strong
+                >{{ account.accountNumber }} - {{ account.accountType }}</strong
+              >
+              <p i18n>
+                Available Balance - {{ account.availableBalance }}
+                {{ account.currency }}
+              </p>
+            </mat-list-item>
+          </mat-list>
+        </mat-menu>
+
+        <!-- Phone -->
+        <div class="input form-field narration">
+          <mat-form-field appearance="outline" id="phone">
+            <mat-label i18n>Mobile Number<mat-icon>
+              emergency
+            </mat-icon></mat-label>
+            <input
+              matInput
+              type="text"
+              placeholder="Enter Mobile Number"
+              formControlName="phone"
+              (keydown)="amountInputValidation()"
+              minlength="11"
+              maxlength="11"
+              (keyup)="formatNumber('phone')"
+            />
+            <mat-error
+              *ngIf="westernUnionForm.get('phone').hasError('required')"
+              i18n>
+              Please enter a valid phone number
+            </mat-error>
+            <mat-error
+            *ngIf="westernUnionForm.get('phone').hasError('minlength') || westernUnionForm.get('phone').hasError('maxlength')" 
+            i18n>
+            Phone number must be 11 digits long
+          </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button
+          mat-flat-button
+          color="primary"
+          id="confirm-otp"
+          type="submit"
+          [disabled]="loaderIsActive"
+          i18n >
+          NEXT
+        </button>
+
+        <button
+          mat-stroked-button
+          id="cancel"
+          type="button"
+          (click)="onCancel()"
+          i18n >
+          CANCEL
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- otp Screen -->
+  <div class="otp-page" *ngIf="page === 'otp'">
+    <button mat-button class="back" (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+      <p i18n>Go Back</p>
+    </button>
+    <div class="otp-page-body">
+      <strong i18n > Confirm Transaction </strong>
+      <div class="transaction-details">
+        <div class="details-element">
+          <p i18n>Amount</p>
+          <p>N {{ amountValue }}</p>
+        </div>
+        <div class="details-element">
+          <p>MTCN</p>
+          <p>{{ MTCNValue}}</p>
+        </div>
+        <div class="details-element">
+          <p  i18n>Country</p>
+          <p>{{ selectedCountry.countryName}}</p>
+        </div>
+        <!-- <div class="details-element">
+          <p>Charges</p>
+          <p>N2,000.00</p>
+        </div> -->
+        <!-- <div class="details-element">
+          <p>Total</p>
+          <strong>N {{ tranAmount }}</strong>
+        </div> -->
+      </div>
+
+      <div id="confirm-OTP">
+        <div class="enter-otp">
+          <img [src]="'images/smartphone 1.png' | assetUrl" alt="Phone" />
+          <p i18n>Please input the OTP sent to your mobile number</p>
+        </div>
+        <form class="otp-form-group" (ngSubmit)="onValidateOneTimePasscode(false)" #otpForm="ngForm">
+          <mat-form-field id="OTP" appearance="outline">
+            <mat-label i18n>OTP</mat-label>
+            <input
+              matInput
+              i18n-placeholder="Enter OTP"
+              ngModel
+              name="otp"
+              type="text"
+              required
+              minlength="5"
+              maxlength="5"
+              pattern="[0-9]*"
+              #otp="ngModel"
+              (keydown)="otpNumberFormat()"
+            />
+            <mat-error *ngIf="otp.hasError('minlength')" i18n>
+              Please enter a valid number (5 digits long)
+            </mat-error>
+          </mat-form-field>
+          <div class="otp-reset-container">
+            <button
+              mat-button
+              color="basic"
+              id="sendOTP"
+              disableRipple
+              [disabled]="loaderIsActive || timer !=0"
+              type="button"
+              (click)="sendOtp('resend')"
+              i18n >
+              Resend OTP
+            </button>
+            <P
+            i18n>OTP Expires in
+              <span
+                ><strong>
+                  {{ minutes }}:{{ seconds < 10 ? "0" + seconds : seconds }}
+                </strong></span
+              >
+            </P>
+          </div>
+
+          <div class="lower-buttons">
+            <button
+              mat-flat-button
+              color="primary"
+              id="confirm-otp"
+              type="submit"
+              [disabled]="loaderIsActive || otpForm.invalid"
+              i18n >
+              Confirm
+            </button>
+
+            <button
+              mat-stroked-button
+              color="basic"
+              id="cancel"
+              type="button"
+              (click)="onCancel()"
+              mat-dialog-close
+              [disabled]="loaderIsActive"
+              i18n >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

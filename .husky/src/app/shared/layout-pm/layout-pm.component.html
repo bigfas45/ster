@@ -1,0 +1,18 @@
+<section>
+  <mat-card class="layout sidenav-container" nav>
+    <strong>Selection option</strong>
+    <p>Showing results for March</p>
+
+    <ul>
+      <li class="nav-link" *ngFor="let navlink of navLinks" routerLinkActive="active" [routerLink] = "navlink.route">
+        <a  >{{navlink.description}}</a>
+        <mat-icon>chevron_right</mat-icon>
+      </li>
+    </ul>
+  </mat-card>
+
+  <mat-card class="layout main" >
+    <router-outlet>
+    </router-outlet>
+  </mat-card>
+</section>

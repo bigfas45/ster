@@ -1,0 +1,199 @@
+* {
+  box-sizing: border-box !important;
+}
+
+p {
+  font-family: "BentonSansRegular";
+  font-size: 14px;
+  color: #616E88;
+  line-height: 24px;
+    text-align: center;
+}
+
+strong {
+  font-size: 14px;
+}
+
+strong, button {
+  font-family: "BentonSansMedium";
+}
+
+
+button {
+  font-size: 12px;
+}
+
+
+section.success-message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70vw;
+  max-width: 350px;
+  padding: 32px;
+
+  .icon-container {
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E3EAED;
+    margin-bottom: 32px;
+
+    mat-icon {
+
+      transform: scale(1.5);
+
+      &#done {
+        color: rgb(5, 150, 0);
+      }
+      &#close {
+        color: rgb(224, 11, 11);
+      }
+    }
+  }
+
+  .actions {
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+
+    &.centered {
+      justify-content: center;
+    }
+
+    &#close {
+      justify-content: center;
+    }
+    button {
+      //padding: 0 50px;
+      margin-top: 32px;
+    }
+  }
+}
+
+section.download-content-container {
+  height: auto;
+  width: 27vw;
+  position: relative;
+
+  img {
+    &#top-ribbon {
+      width: 100%;
+      top: 0;
+      position: absolute;
+    }
+
+    &#stanbic-logo {
+      top: 0;
+      width: 40px;
+    }
+  }
+
+  .body {
+    padding: 24px 24px;
+    h4 {
+      margin: 0;
+    }
+    p, strong {
+      font-size: 10px;
+      margin: 0
+    }
+
+    strong {
+      font-weight: 700;
+    }
+    .logo-area {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .body-element {
+      width: 100%;
+      display: grid;
+      padding: 13px 0;
+      margin-top: 12px;
+      grid-template-columns: auto auto 1fr;
+      justify-items: end;
+      align-items: start;
+      grid-gap: 10px;
+      border-top: 1px solid #0032A1;
+
+      &.narration {
+        .values {
+          max-width: 300px;
+        }
+      }
+
+      img {
+        width: 22px;
+      }
+    }
+  }
+
+  .footer {
+    background-color:  rgba(3, 155, 254, 0.08);
+    padding: 24px 24px;
+
+  }
+
+  p, strong, a {
+    font-size: 10px;
+  }
+
+  a {
+    text-decoration: none;
+    color:#0061a1;
+  }
+
+  strong{
+    font-weight: 800px;
+  }
+
+  .notice-text {
+    p, a {
+      display: inline;
+    }
+
+
+  }
+
+  .footer-ribbon {
+    display: flex;
+    align-items: center;
+    background-color:  rgba(3, 155, 254, 0.08);
+    padding-bottom: 10px;
+
+    p{
+      margin-right: 4px;
+    }
+
+    img {
+      width: 60%;
+      margin-right: 10px;
+    }
+  }
+
+
+}
+
+@media (min-width: 460px) {
+  section.success-message-container {
+    padding: 49px;
+
+    // .actions {
+    //   display: flex;
+    //   justify-content: space-between;
+    //   button {
+    //     width: auto;
+    //     padding: 1% 7%;
+    //     margin-top: 10%;
+    //   }
+    // }
+  }
+}

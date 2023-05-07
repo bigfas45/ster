@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  font-family: "BentonSansRegular";
+  box-sizing: border-box !important;
+}
+
+
+main {
+  overflow-y: hidden !important;
+
+  .body {
+    background: var(--transfer-backgroundColour);
+    overflow-y: hidden;
+    overflow-x: hidden !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

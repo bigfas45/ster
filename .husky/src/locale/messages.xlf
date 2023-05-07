@@ -1,0 +1,935 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="2960246622843217026" datatype="html">
+        <source>Go Back</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/add-beneficiary/add-beneficiary.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/beneficiary-list/beneficiary-list.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">234</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">234</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">139</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">202</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">300</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">158</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9134247915326861724" datatype="html">
+        <source>Add passport photo</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/add-beneficiary/add-beneficiary.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8953033926734869941" datatype="html">
+        <source>Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/add-beneficiary/add-beneficiary.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4973369544802756920" datatype="html">
+        <source> Please enter a name </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/add-beneficiary/add-beneficiary.component.html</context>
+          <context context-type="linenumber">31,33</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">127,129</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4086606389696938932" datatype="html">
+        <source>Account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/add-beneficiary/add-beneficiary.component.html</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7966738694416698167" datatype="html">
+        <source> Please enter a valid account </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/add-beneficiary/add-beneficiary.component.html</context>
+          <context context-type="linenumber">49,51</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">92,94</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1507428485847535905" datatype="html">
+        <source>Recepient Bank</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/add-beneficiary/add-beneficiary.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">119</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="187187500641108332" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ selectedBank.name }}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/add-beneficiary/add-beneficiary.component.html</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="936036869684681774" datatype="html">
+        <source>expand_more</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/add-beneficiary/add-beneficiary.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8003899832061284476" datatype="html">
+        <source>BENEFICIARY DETAILS</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/add-beneficiary/add-beneficiary.component.html</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8362431726225982360" datatype="html">
+        <source> ADD BENEFICIARY </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/add-beneficiary/add-beneficiary.component.html</context>
+          <context context-type="linenumber">89,91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5562806831680109922" datatype="html">
+        <source> UPDATE BENEFICIARY </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/add-beneficiary/add-beneficiary.component.html</context>
+          <context context-type="linenumber">99,101</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5093246968683286714" datatype="html">
+        <source>All beneficiaries</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/beneficiary-list/beneficiary-list.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6839752459551928599" datatype="html">
+        <source>Remove and manage beneficiaries</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/beneficiary-list/beneficiary-list.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6841309514393467391" datatype="html">
+        <source> ADD NEW BENEFICIARY </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/beneficiary-list/beneficiary-list.component.html</context>
+          <context context-type="linenumber">19,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3874502851696235688" datatype="html">
+        <source> EDIT </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/beneficiary-list/beneficiary-list.component.html</context>
+          <context context-type="linenumber">44,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2456043080471762298" datatype="html">
+        <source>delete</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/beneficiaries/beneficiary-list/beneficiary-list.component.html</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="702020643495844973" datatype="html">
+        <source>Fill all input field</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6533918067030990396" datatype="html">
+        <source>Amount</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">240</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">182</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">94</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">240</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">145</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">208</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">306</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">164</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7434228370339138313" datatype="html">
+        <source> Please enter a valid amount </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">25,27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">193,195</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">106,108</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">54,56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">68,70</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">89,91</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8010773291479880924" datatype="html">
+        <source>MTCN</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8998521324680874326" datatype="html">
+        <source> Please enter your MTCN </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">47,49</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2664971313490204707" datatype="html">
+        <source> Please enter a valid number </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">52,54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4346540553243312200" datatype="html">
+        <source>Please select a country</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1167227344449495355" datatype="html">
+        <source>Answer to Security Question</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">121</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5438451287932893647" datatype="html">
+        <source> Please enter an answer </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">132,134</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2059459644594188228" datatype="html">
+        <source> Select redemption account number </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">150,152</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4006420118189229222" datatype="html">
+        <source>Please select an account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">162</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">157</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6283690502700131971" datatype="html">
+        <source> Available Balance - <x id="INTERPOLATION" equiv-text="{{ account.availableBalance }}"/> <x id="INTERPOLATION_1" equiv-text="{{ account.currency }}"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">176,179</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">171,174</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">84,87</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">46,48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">37,39</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">69,71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7571110135159465275" datatype="html">
+        <source>Mobile Number</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">187</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8161574581069149553" datatype="html">
+        <source> Please enter a valid phone number </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">200,202</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1108254485495492229" datatype="html">
+        <source> NEXT </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">214,216</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">91,93</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">254,256</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">213,215</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">126,128</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">181,183</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">145,147</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4163203949226789138" datatype="html">
+        <source> CANCEL </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">223,225</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">101,103</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">264,266</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">223,225</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">191,193</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4099996893172929309" datatype="html">
+        <source> Confirm Transaction </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">237</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">237</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">142</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">205</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">303</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">161</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="516176798986294299" datatype="html">
+        <source>Country</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">248</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4151503176162624912" datatype="html">
+        <source>Please input the OTP sent to your mobile number</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">264</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">258</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">161</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">224</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">180</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9211665410945124545" datatype="html">
+        <source>OTP</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">268</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">165</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">326</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">184</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3213966649572005482" datatype="html">
+        <source> Please enter a valid number (6 digits long) </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">282,284</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">280,282</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">179,181</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">242,244</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">340,342</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">198,200</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7985245258932699005" datatype="html">
+        <source> Resend OTP </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">295,297</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">294,296</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">192,194</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">255,257</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">211,213</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5931902940182484113" datatype="html">
+        <source>OTP Expires in <x id="START_TAG_SPAN" ctype="x-span" equiv-text="&lt;span
+                &gt;"/><x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/> <x id="INTERPOLATION" equiv-text="{{ minutes }}"/>:<x id="INTERPOLATION_1" equiv-text="{{ seconds &lt; 10 ? &quot;0&quot; + seconds : seconds }}"/> <x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/><x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span
+              &gt;"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">299,304</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">298,303</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">196,201</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">259,264</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">215,220</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6249484391846924804" datatype="html">
+        <source> Confirm </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">315,317</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">314,316</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">212,214</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">276,278</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">373,375</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">231,233</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2330577642930707695" datatype="html">
+        <source> Cancel </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/international-transfers/western-union/western-union.component.html</context>
+          <context context-type="linenumber">327,329</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">326,328</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">222,224</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">287,289</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">384,386</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">241,243</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6515294136532865995" datatype="html">
+        <source>Customer Id</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7250776666360782430" datatype="html">
+        <source> Please enter customer Id </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">32,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1454275362291983388" datatype="html">
+        <source> Please enter a valid Id </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">37,39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="278800169117518207" datatype="html">
+        <source>Please select a card type</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3514035967977891460" datatype="html">
+        <source>Preferred Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">117</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9064110285025598012" datatype="html">
+        <source> Select account to debit </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">145,147</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2204383702789034337" datatype="html">
+        <source>Narration</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">202</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">195</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">109</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">169</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">126</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2725837554049139303" datatype="html">
+        <source> Please enter narration </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">212,214</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1085309836704157602" datatype="html">
+        <source>Card Number</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">221</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="647640283515084554" datatype="html">
+        <source> Please enter card number </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">234,236</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="603870644828195866" datatype="html">
+        <source> Please enter a valid card number </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/fund-prepaid-card/fund-prepaid-card.component.html</context>
+          <context context-type="linenumber">239,241</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="499640950999780142" datatype="html">
+        <source>RECENT BENEFICIARIES</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2029772588080623679" datatype="html">
+        <source>MANAGE BENEFICIARIES</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="633722560058332838" datatype="html">
+        <source>Fill in all Input</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1564685706187719928" datatype="html">
+        <source>Select account to debit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="685952596725085423" datatype="html">
+        <source>Please select a beneficiary</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">137</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2823548993493588814" datatype="html">
+        <source>Please select a category</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">189</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">163</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1995462320428563005" datatype="html">
+        <source>Charges</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">244</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">149</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">212</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">310</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">168</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3448462145758383019" datatype="html">
+        <source>Total</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-beneficiaries/transfer-beneficiaries.component.html</context>
+          <context context-type="linenumber">250</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">153</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">216</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">314</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">172</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5925949079430466904" datatype="html">
+        <source> Available Balance -<x id="INTERPOLATION" equiv-text="{{ account.availableBalance }}"/> <x id="INTERPOLATION_1" equiv-text="{{ account.currency }}"/> </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">35,37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7589283467355570905" datatype="html">
+        <source>Recepient @ease account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8491792421181554867" datatype="html">
+        <source> Please enter a valid @ease account </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">72,74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2565986710042878703" datatype="html">
+        <source> @ease number must be 10 digits long </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">75,77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3076403834269500309" datatype="html">
+        <source>N0</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-ease/transfer-ease.component.html</context>
+          <context context-type="linenumber">150</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">169</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6629813258465785538" datatype="html">
+        <source>Recepient account</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5356352797749150849" datatype="html">
+        <source> Account number must be 10 digits long </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">102,104</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8166456484852164471" datatype="html">
+        <source>Please select a bank</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8678424117425557675" datatype="html">
+        <source>RECEPIENT DETAILS</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">136</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">101</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6042152552392480131" datatype="html">
+        <source>Transaction category</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">153</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">117</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6515616631999911362" datatype="html">
+        <source>Please provide the hardware token number below</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-otherbanks/transfer-otherbanks.component.html</context>
+          <context context-type="linenumber">322</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5822554330118474127" datatype="html">
+        <source>Select account to credit</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5784952118431041589" datatype="html">
+        <source>Stanbicibtc Bank</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/transfers/transfer-self/transfer-self.component.html</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

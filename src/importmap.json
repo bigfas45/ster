@@ -1,0 +1,26 @@
+{
+  "imports": {
+  "react": "https://cdn.jsdelivr.net/npm/react@16.13.1/umd/react.production.min.js",
+  "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@16.13.1/umd/react-dom.production.min.js",
+  "@stanbic/home": "https://app.stanbicibtc.com/OnlineBankingHome/en-us/main.js",
+  "@stanbic/AproverServiceRequest": "https://app.stanbicibtc.com/OnlineBankingApproverServiceRequest/en-us/main.js",
+  "@stanbic/approver-transfers": "https://app.stanbicibtc.com/OnlineBankingApproverTransfer/en-us/main.js",
+  "@stanbic/sme-transfers": "https://app.stanbicibtc.com/OnlineBankingSMETransfer/en-us/main.js",
+  "@stanbic/transfer": "https://app.stanbicibtc.com/OnlineBankingTransfer/en-us/main.js",
+  "@stanbic/cardManagement": "http://localhost:9026/main.js",
+  "@stanbic/account": "https://app.stanbicibtc.com/OnlineBankingAccount/en-us/main.js",
+  "@stanbic/approval-pension-remittance": "https://app.stanbicibtc.com/OnlineBankingApprovalPensionRemittance/en-us/main.js",
+  "@stanbic/pension-remittance": "http://localhost:9026/main.js",
+  "@stanbic/service-request": "https://app.stanbicibtc.com/OnlineBankingServiceRequest/en-us/main.js",
+  "@stanbic/bill-Payment": "https://app.stanbicibtc.com/OnlineBankingBillPayments/en-us/main.js",
+  "@stanbic/bento": "https://app.stanbicibtc.com/OnlineBankingBento/en-us/main.js",
+  "@stanbic/sme-approver-beneficiaries": "https://app.stanbicibtc.com/OnlineBankingSMEApproverBeneficiaries/en-us/main.js",
+  "@stanbic/profile-management": "https://app.stanbicibtc.com/OnlineBankingProfileManagement/en-us/main.js",
+  "@stanbic/sme-bill-Payment": "https://localhost:9026/main.js",
+  "@stanbic/auth": "https://app.stanbicibtc.com/OnlineBankingAuthentication/en-us/main.js",
+  "@Stanbic/root-config": "https://chenkenz.fra1.cdn.digitaloceanspaces.com/Stanbic-root-config.js",
+  "@stanbic/sidebar": "https://app.stanbicibtc.com/OnlineBankingSidebar/en-us/main.js",
+  "@stanbic/header": "https://app.stanbicibtc.com/OnlineBankingHeader/en-us/main.js",
+  "@stanbic/mobilemenu": "https://app.stanbicibtc.com/OnlineBankingSidebar/en-us/main.js"
+  }
+  }

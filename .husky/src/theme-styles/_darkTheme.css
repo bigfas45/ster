@@ -1,0 +1,11 @@
+html[data-theme='dark'] {
+    --transfer-backgroundColour: #181818;
+    --transfer-PrimaryText: #ffffff;
+    --transfer-SecondaryText: #ffffff;
+    
+    --transfer-alternateBackground: #323232;
+    --transfer-border: #323232;
+
+    --transfer-cardBackground: #323232;
+    --transfer-cardText: #ffffff;
+}

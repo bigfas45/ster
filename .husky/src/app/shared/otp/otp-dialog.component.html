@@ -1,0 +1,107 @@
+<section class="beneficiary-otp-dialog-container">
+  <div class="loader" *ngIf="loaderIsActive">
+    <mat-progress-bar mode="indeterminate" color="primary"></mat-progress-bar>
+  </div>
+  <div class="delete-page" *ngIf="page === 'delete'">
+    <strong>Remove Beneficiary</strong>
+    <p>Confirm Request</p>
+    <div class="actions">
+      <button
+            mat-flat-button
+            id="cancel"
+            matDialogClose
+          >
+            CANCEL
+          </button>
+      <button
+            mat-flat-button
+            id="delete"
+            (click) = "sendOtp()"
+          >
+            DELETE
+          </button>
+    </div>
+  </div>
+
+
+
+  <div  id="confirm-OTP" *ngIf="page == 'otp'">
+    <h3>Confirm OTP</h3>
+    <div class="enter-otp">
+        <img [src]="'images/smartphone 1.png' | assetUrl" alt="Phone">
+        <p>Please input the OTP sent to your mobile number</p>
+    </div>
+    <form class="otp-form-group" (ngSubmit)="onValidateOneTimePasscode(false)" #otpForm = ngForm>
+        <mat-form-field id="OTP" appearance="outline">
+          <mat-label>OTP</mat-label>
+          <input
+            matInput
+            placeholder="Enter OTP"
+            ngModel
+            name="otp"
+            type ="text"
+            required
+            minlength="6"
+            maxlength="6"
+            pattern="[0-9]*"
+            (keydown)="otpNumberFormat()"
+            >
+        </mat-form-field>
+        <div class="otp-reset-container">
+            <button
+            mat-button color="basic"
+            id="sendOTP"
+            disableRipple
+            [disabled]="timer != 0 || loaderIsActive"
+            type="button"
+            (click)="sendOtp()"
+            >
+            Resend OTP</button>
+            <P>OTP Expires in
+                <span><h3>{{minutes}}:{{seconds < 10? '0' + seconds: seconds}}</h3></span>
+            </P>
+
+        </div>
+
+        <div class="lower-buttons">
+            <button
+            mat-flat-button
+            color="primary"
+            id="confirm-otp"
+            type="submit"
+            [disabled]="otpForm.invalid || loaderIsActive"
+            >
+            CONFIRM
+            </button>
+
+            <button
+            mat-stroked-button
+            color="basic"
+            id="cancel"
+            type="button"
+            (click)="onCancel()"
+            mat-dialog-close
+            >
+            CANCEL</button>
+        </div>
+
+      </form>
+</div>
+
+
+<div class="action-status-page-container" *ngIf="page == 'action-status-page'">
+  <div class="icon-container">
+    <mat-icon id="done" *ngIf="successStatus === 'success'">done</mat-icon>
+    <mat-icon id="fail" *ngIf="successStatus === 'fail'">close</mat-icon>
+  </div>
+  <strong  *ngIf="successStatus === 'success'"> {{succesTitle}}</strong>
+  <strong  *ngIf="successStatus === 'fail'"> Error occurred</strong>
+  <p>{{message}}</p>
+  <div class="actions">
+    <!-- <button mat-flat-button color="primary" id="close" (click)="closeDialog()">
+      CLOSE
+    </button> -->
+    <button mat-stroked-button mat-dialog-close>{{successStatus === 'success'?'DONE': 'CLOSE'}}</button>
+  </div>
+</div>
+</section>

@@ -1,0 +1,129 @@
+<section class="success-message-container" *ngIf="successMsg">
+  <div class="icon-container">
+    <mat-icon [id]="icon">{{icon}}</mat-icon>
+  </div>
+  <strong *ngIf="icon === 'done'">{{ successTitle }}</strong>
+  <!-- <strong *ngIf="icon === 'close'">Transaction Failed</strong> -->
+  <p>{{ message }}</p>
+  <div class="actions" [id]="icon" [ngClass]="!downloadButton? 'centered': ''" >
+
+<button mat-flat-button color="primary" *ngIf="icon === 'done' && downloadButton" i18n (click) ="downloadFile()"> DOWNLOAD RECEIPT
+  
+</button>
+
+
+    <button mat-stroked-button mat-dialog-close>Done</button>
+  </div>
+</section>
+
+<section
+  class="download-content-container"
+  [hidden]="!download"
+  #downloadContent
+  id="downloadContent"
+>
+  <img
+    [src]="'images/download-top-ribbon.png' | assetUrl"
+    alt=""
+    id="top-ribbon"
+  />
+  <div class="logo-area"></div>
+
+  <div class="body">
+    <div class="logo-area">
+      <img
+        [src]="'images/standard_bank_logo.png' | assetUrl"
+        alt=""
+        id="stanbic-logo"
+      />
+    </div>
+    <h4>Online transaction receipt</h4>
+    <p>Generated Mon, Jan 12, 2021 15:32</p>
+
+    <div class="body-element transaction">
+      <img
+        [src]="'images/transaction.png' | assetUrl"
+        alt=""
+        class="body-icon"
+      />
+      <p>TRANSACTION</p>
+      <div class="values">
+        <strong> N200,000 </strong>
+        <p>Local Transfer</p>
+        <p>January 12, 2021 15:32</p>
+      </div>
+    </div>
+
+    <div class="body-element beneficiary">
+      <img
+        [src]="'images/beneficiary.png' | assetUrl"
+        alt=""
+        class="body-icon"
+      />
+      <p>BENEFICIARY</p>
+      <div class="values">
+        <P> EHIZOJIE IHAYERE </P>
+        <p>003******12</p>
+        <p>Stanbic IBTC Bank</p>
+      </div>
+    </div>
+
+    <div class="body-element sender">
+      <img [src]="'images/sender.png' | assetUrl" alt="" class="body-icon" />
+      <p>SENDER</p>
+      <div class="values">
+        <P> SOLOMON JOSEPH </P>
+        <p>321******54</p>
+        <p>FirstBank</p>
+      </div>
+    </div>
+
+    <div class="body-element status">
+      <img [src]="'images/status.png' | assetUrl" alt="" class="body-icon" />
+      <p></p>
+      <div class="values">
+        <P> TRANS/D/3-10-2020/12:23 </P>
+        <p>SUCCESSFULL</p>
+      </div>
+    </div>
+
+    <div class="body-element narration">
+      <img [src]="'images/narration.png' | assetUrl" alt="" class="body-icon" />
+      <p>NARRATION</p>
+      <div class="values">
+        <P>
+          My guy, use this one flex for weekend. Hope you’re not annoyed
+          anymore.
+        </P>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <strong> Notice </strong>
+    <div class="notice-text">
+      <p>
+        This is an online auto generated transaction receipt, your transfer has
+        been successfull. This is an authentic receipt, for further inquiries,
+        contact
+      </p>
+      <a> 0700 909 909 909></a>
+      <p> or email</p>
+      <a>CustomerCareNigeria@stanbicibtc.com</a>
+    </div>
+
+    <p>Generated from Stanbic IBTC</p>
+
+
+  </div>
+  <div class="footer-ribbon">
+    <img
+    [src]="'images/footer-ribbon.png' | assetUrl"
+    alt=""
+    id="footer-ribbon"
+  />
+
+    <p>Stanbic IBTC</p>
+    <strong>IT CAN BE</strong>
+  </div>
+</section>
